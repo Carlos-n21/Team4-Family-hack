@@ -108,5 +108,22 @@ h4 {
   transform: scale(1.1);
 }
 
+/* expanded guide */
+.guide-expanded {
+  margin: 20px;
+}
 
+.guide-expanded h2 {
+  text-align: center;
+  margin-left: 10px;
+}
 
+.guide-expanded .head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guide-expanded i {
+  font-size: 3rem;
+}
