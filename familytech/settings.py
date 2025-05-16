@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-mf%=k3)hcx_%7kki(+co%(rv77tcuday2i@-gn7ys@xst41_ek
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.gitpod.io'
+    'localhost',
+    '127.0.0.1',
+    '.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
