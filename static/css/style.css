@@ -10,6 +10,132 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+/* Modern Navbar Styling */
+.navbar {
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #2d3748;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #4299e1;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.1);
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.8rem !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #4299e1;
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+.nav-link.active {
+  color: #4299e1;
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+/* Fancy underline effect for nav links */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #4299e1;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Profile dropdown styling */
+.profile__btn {
+  border-radius: 50%;
+  padding: 2px !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s ease;
+}
+
+.profile__btn:hover {
+  border: 2px solid #4299e1 !important;
+  transform: scale(1.05);
+}
+
+.profile__avatar {
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+}
+
+.dropdown-menu {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1rem 0.5rem;
+}
+
+.dropdown-item {
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(66, 153, 225, 0.1);
+  color: #4299e1;
+  transform: translateX(3px);
+}
+
+/* Navbar toggler custom styling */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.25);
+}
+
+/* Container padding for better spacing */
+.container-fluid {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Sticky navbar effect */
+.navbar.scrolled {
+  padding: 0.7rem 0;
+  background-color: #fff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .custom-card {
   background-color: #BAF2E9;
   border: none;
