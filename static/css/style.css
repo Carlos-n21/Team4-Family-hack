@@ -10,3 +10,25 @@ body{
     min-height: 100vh;
     font-family: 'Roboto', sans-serif;
 }
+
+.custom-card {
+  background-color: #BAF2E9;
+  border: none;
+}
+
+h1, h4 {
+  color: #4b4b4b; 
+}
+
+.highlight-quote {
+  background-color: #BAD7F2; /* soft blue */
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+
+
+
