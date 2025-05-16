@@ -31,7 +31,6 @@ h4 {
 }
 
 .device-categories {
-  border: 2px solid red;
   margin: 20px;
 }
 
@@ -65,7 +64,7 @@ h4 {
 
 .device .head {
   background-color: #cac8c8;
-  height: 200px;
+  height: 150px;
   justify-content: space-around;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -73,11 +72,15 @@ h4 {
 
 .device .body {
   background-color: #e9e7e7;
-  height: 100px;
+  height: 130px;
+  justify-content: space-around;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;  
 }
 
+.device i {
+  font-size: 4rem;
+}
 
 .device p {
   text-align: center;
