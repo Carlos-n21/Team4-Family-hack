@@ -1,4 +1,44 @@
 {% extends 'base.html' %}
+<!-- {% load static %} -->
 {% block content %}
 <h1>Technical Issues page</h1>
+<!-- Device categories -->
+<section class="device-categories">
+    <h2>Select device</h2>
+    <div class="devices-container">
+        <!-- Mobile -->
+        <div class="device mobile">
+            <div class="head">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>Mobile Devices</h3>
+            </div>
+            <div class="body">
+                <p>Get help with your smart phones and tablets</p>
+                <button>See guide</button>
+            </div>
+        </div>
+        <!-- Laptop -->
+        <div class="device mobile">
+            <div class="head">
+                <i class="fa-solid fa-laptop"></i>
+                <h3>Laptops</h3>
+            </div>
+            <div class="body">
+                <p>Get help with your laptops</p>
+                <button>See guide</button>
+            </div>
+        </div>
+        <!-- Desktop -->
+        <div class="device mobile">
+            <div class="head">
+                <i class="fa-solid fa-computer"></i>
+                <h3>Desktops</h3>
+            </div>
+            <div class="body">
+                <p>Get help with your desktop computers</p>
+                <button>See guide</button>
+            </div>
+        </div>              
+    </div>
+</section>
 {% endblock %}
