@@ -1,46 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm rounded-4">
-                <div class="card-body p-4">
-                    <h2 class="text-center mb-4">Log In</h2>
-                    
-                    {% if form.errors %}
-                    <div class="alert alert-danger">
-                        Your username and password didn't match. Please try again.
-                    </div>
-                    {% endif %}
-                    
-                    <form method="post" class="auth-form">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            <label for="id_username" class="form-label">Username</label>
-                            {{ form.username }}
-                        </div>
-                        <div class="mb-3">
-                            <label for="id_password" class="form-label">Password</label>
-                            {{ form.password }}
-                        </div>
-                        <div class="d-grid gap-2 mt-4">
-                            <button type="submit" class="btn btn-primary">Sign In</button>
-                        </div>
-                        <input type="hidden" name="next" value="{{ next }}">
-                    </form>
-                    
-                    <div class="auth-divider mt-4">
-                        <span>Don't have an account?</span>
-                    </div>
-                    
-                    <div class="text-center mt-3">
-                        <a href="{% url 'signup' %}" class="btn btn-outline-secondary">Create Account</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
 </div>
 {% endblock %}

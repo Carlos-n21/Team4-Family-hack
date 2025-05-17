@@ -1,4 +1,6 @@
-# FamilyTech  <a id="top"/>
+![image]()
+
+#   <a id="top"/>
 
 <img src=""> 
 
@@ -10,7 +12,7 @@ The main objective of this Haackathon was to build a site/app that could provide
 
 That would be achieved through showing guides for the users to fix their IT issues.
 
-Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
+Live site: []()
 
 ## Table of Contents
 - []()
@@ -64,34 +66,27 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 [Back to top](#top)
 
 # Overview
-FamilyTech is a simple site that provides information about how to do some tasks on mobiles devices and laptops or computers.<br>
+Bis.<br>
 
-It also has a chat-bot function in case the user doesn't finds the information he needs.<br>
-
-It aims to be an interactive and responsive site in different devices.<br>
-
-The site goal is to help the user overcome the strugle with different issues while trying to open an app, sending a message or adding a new contact.<br>
+Ience.
 
 ## UX - User Experience
-For this site we opted to use smooth colours that could help the user to relax and be confident with the solution provided.<br>
+T:
 
-Some of the features available
-  - Access to posts with guides for different devices
-  - Chat-bot for extra help, in case no help is available on the site
+  s.
 
 [Back to top](#top)
 
 ## Colour Scheme
+Fo
+#ffffff - 
+#4b5563 - 
+#4299e1 - 
+#2d3748 - 
+#4b5563 - 
 
-#ffffff - White
-#4b5563 - Bright Grey
-#4299e1 - Tufts Blue
-#2d3748 - Japanese Indigo
-#4b5563 - Independence
+https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/
 
- - [Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
-
-Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 
 <img src="" style="width: 90%; height: 60%;"><br>
 
@@ -111,45 +106,29 @@ Fonts used for this website were:
   - [Roboto](https://fonts.google.com/specimen/Roboto)
   - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
   
+
   
 [Back to top](#top)
 
 # Project Planning
 
-Initial idea for the chat was to create help guides for tasks done at home, not just with technology, but also with household appliances and where to find different things.<br>
-
-After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances, if possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
-
-With this done, different areas of the site (back-end, front-end, colours, etc, where picked by different members of the team.<br>
-
-On the first day the repository and project were created with all members added with admin rights.<br>
-
-Heroku deployment done successfully on the third day.<br>
-
-The team kept working on improving the site features and fixing errors.<br>
+Thy.<br>
 
 ## Strategy
 
-  - Simple and appealing layout and colors
-  - User-friendly platform
-  - Menus easy to locate and select
-  - Consistent UX design throughout different platforms
-  - Allow for future improvements and addition of new features
+  - Us
 
 ## Agile Methodologies
-FamilyTech was the first hackathon for one of our members and a come back experience for the rest of the group.<br>
+B.
 
-In the begining sounded a bit tricky to check which role different members could get, but with communication within the team we were able to get everyone to work in different areas of the website, and slowly start building the project.<br>
+Issues and features can be seen on [GitHub Project Board]().
 
-We did our best to have 2 huddles per day, with one after lunch and another later in the day to discuss the site progress and what needed to be changed, improved and what was done well.<br>
-
-Good and frequent (as possible) communication helped to keep the project on track, with extra huddles, as needed to check inidividual issues and try to solve them.<br>
-
-Issues and features can be seen on [GitHub Project Board](https://github.com/users/Carlos-n21/projects/19).<br>
+Wis.
 
 [Back to top](#top)
 
 ### Users
+
 
 Persona 1: Tech-Savvy Student
 
@@ -242,6 +221,9 @@ Persona 3: Freelance IT Support Technician
         Prefers content with clear structure, quick reference sections, or downloadable PDFs
 
 
+
+
+
 [Back to top](#top)
 
 ### Wireframes
@@ -264,9 +246,12 @@ Afns.<br>
 [Back to top](#top)
 
 ### Imagery
-Image used on the homepage:
+Bag)
 
-- [Elderly using technology](https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894)
+https://dadbloguk.com/wp-content/uploads/2015/12/Family.jpg
+https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894
+https://davidyorkhomehealthcare.com/wp-content/uploads/2018/03/elderly-technology.jpg
+
 
 [Back to top](#top)
 
@@ -283,10 +268,12 @@ An
   - CSS
   - JavaScript
   - Python
+  - PostgreSQL
   - Git
   - Github
   - VS-Code
   - Django
+  - Cloudinary
   - Heroku
 
 ### Libraries
@@ -366,6 +353,28 @@ Make the necessary migrations again.
 
 [Back to top](#top)
 
+### Cloudinary API
+Cloudinary provides a cloud hosting solution for media storage. All users uploaded images in the FreeFid project are hosted here.
+
+Set up a new account at Cloudinary and add your Cloudinary API environment variable to your env.py and Heroku Config Vars. In your project workspace:
+
+  - Add Cloudinary libraries to INSTALLED_APPS in settings.py
+  - In the order:<br>
+   'cloudinary_storage',<br>
+   'django.contrib.staticfiles',  <br>
+   'cloudinary',<br>
+
+  - Add to env.py and link up with settings.py: os.environ["CLOUDINARY_URL"]="cloudinary://...."
+  - Set Cloudinary as storage for media and static files in settings.py:
+  - STATIC_URL = '/static/'<br>
+  STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'<br>  
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]<br>
+  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')‌<br>  
+  MEDIA_URL = '/media/'<br>  
+  DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'<br>
+
+[Back to top](#top)
+
 ### Heroku deployment
 To start the deployment process , please follow the below steps:
 
@@ -420,6 +429,47 @@ A copy of the original repository can be made through GitHub. Please follow the 
   - You should now have access to a forked copy of this repository in your Github account.
   - Follow the above Django Project Steps if you wish to work on the project.
 
+[Back to top](#top)
+
+## Tailwind CSS Setup
+
+These instructions will guide you through setting up Tailwind CSS in your Django project using django-tailwind.
+
+### Prerequisites
+
+-   Node.js and npm installed. You can download them from [https://nodejs.org](https://nodejs.org).
+
+### Installation
+
+1.  Install django-tailwind:
+
+    ```bash
+    pip install django-tailwind==4.0.1
+    ```
+
+2.  Initialize Tailwind CSS for your app (replace "theme" with your app name if different):
+
+    ```bash
+    python manage.py tailwind init --app-name theme
+    ```
+
+3.  Add `tailwind` and your app to `INSTALLED_APPS` in `settings.py`:
+
+    ```python
+    INSTALLED_APPS = [
+        ...
+        'tailwind',
+        'theme',
+    ]
+    ```
+
+    Also, add `TAILWIND_APP_NAME = 'theme'` to your `settings.py` file.
+
+4.  Install the npm dependencies:
+
+    ```bash
+    python manage.py tailwind install
+    ```
 
 [Back to top](#top)
 
