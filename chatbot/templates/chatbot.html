@@ -1,4 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Chatbot page</h1>
+<section id="chatbot-section">
+    <div class="chatbot">
+      <header>
+        <h2>Family Chatbot</h2>
+        <p id="ctrl-enter-info">Press <strong>Shift + Enter </strong> together to start a new <br />line in the textarea
+        </p>
+      </header>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span><i class="fa-solid fa-people-roof"></i></span>
+          <p>Hi there 👋 <br /> How can I help you today?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..." required></textarea>
+        <span id="send-btn" class="material-symbols-outlined">send</span>
+      </div>
+    </div>
+  </section>
 {% endblock %}
+{% block extra_js %}
+<script src= "{% static 'js/chatbot.js' %}" defer></script>
+{% endblock extra_js %}
