@@ -13,19 +13,16 @@
 
   <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
 
+  <!-- Bootstrap & Your CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="icon" type="image/x-icon" href="images/technology.ico">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/authentication.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/profile.css' %}" type="text/css">
 
   <!---Google Font-->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap & your CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -61,17 +58,23 @@
               </li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{% url 'profile' %}">👤 Account</a></li>
-                <li>
-                    <!-- Bookmarked Issues placeholder link -->
-                    <a class="dropdown-item" href="#">
-                      ⭐ Bookmarks
-                    </a>
-                  </li>
-              <li><a class="dropdown-item" href="{% url 'logout' %}">🚪 Sign Out</a></li>
+              <li>
+                <a class="dropdown-item" href="#">
+                  ⭐ Bookmarks
+                </a>
+              </li>
+              <li>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="dropdown-item" style="width:100%; text-align:left; background:none; border:none; padding:0;">
+                    🚪 Sign Out
+                  </button>
+                </form>
+              </li>
             </ul>
           </div>
           {% else %}
-          <a class="nav-link" href="{% url 'login' %}">Login</a>
+          <a class="nav-link btn btn-primary px-3 py-2 ms-2" href="{% url 'login' %}">Login</a>
           {% endif %}
         </div>
       </div>
@@ -83,20 +86,20 @@
   {% endblock %}
 
   <!-- Bootstrap JS and FontAwesome -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/591946d0d0.js" crossorigin="anonymous"></script>
   <script>
-  window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-</script>
-{% block extra_js %}
-{% endblock extra_js %}
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+  {% block extra_js %}
+  {% endblock extra_js %}
 </body>
 </html>
