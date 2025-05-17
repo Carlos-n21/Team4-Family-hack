@@ -1,6 +1,3 @@
-// import data object
-import { data } from './guide.js';
-
 /**
  * Add Event Listener to run only after HTML document has completely loaded
  * - All code within this eventlistener will be accessible to the browser once the page has loaded.
@@ -9,8 +6,7 @@ import { data } from './guide.js';
  */
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log('Object below')
-    console.log(data['mobile']['icon'])
+    console.log('Test display')
 
     // Add eventListeners to .rod elements
     addHelpEventListeners();
