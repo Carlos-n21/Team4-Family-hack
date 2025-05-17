@@ -236,7 +236,11 @@ h4 {
 
 /* expanded guide */
 .guide-expanded {
-  margin: 20px;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .guide-expanded h2 {
@@ -284,6 +288,15 @@ h4 {
   border-radius: 10px;
 }
 
+.help-group {
+  padding: 10px;
+  max-width: 350px;
+}
+
+.help-item {
+  min-width: 280px;
+}
+
 .help-head {
   display: flex;
   align-items: center;
@@ -291,6 +304,7 @@ h4 {
   box-shadow: 2px 2px 3px 3px rgba(153, 153, 153, 0.8);
   user-select: none;
   cursor: pointer;
+  margin-top: 10px;
 
 }
 
