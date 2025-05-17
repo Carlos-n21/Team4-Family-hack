@@ -1,0 +1,89 @@
+:root {
+    --primary: #4769FA;
+    --primary-light: #EBF1FF;
+    --text: #4A4E52;
+    --border: #E2E3E6;
+    --bg: #E5E4E5;
+    --dropdown-bg: #FCFCFC;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background: var(--bg);
+}
+
+/* Profile Button in Navbar */
+.profile__btn {
+    background: none;
+    color: inherit;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+}
+
+.profile__btn:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Avatar (Dropdown & Button) */
+.profile__btn img, .profile__avatar {
+    display: block;
+    width: 3.125rem;
+    height: 3.125rem;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Profile Info in Dropdown */
+.profile__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile__name {
+    font-size: 1.15rem;
+}
+
+.profile__email {
+    font-size: 0.95rem;
+}
+
+/* Profile Card Styles */
+.card {
+    border-radius: 1.5rem !important;
+    box-shadow: 0 4px 24px rgba(60,60,60,0.10);
+    border: none;
+}
+
+.card .rounded-circle {
+    border: 4px solid #EBF1FF;
+    background: #fcfcfc;
+    object-fit: cover;
+}
+
+.card-body h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.card-body .text-muted {
+    font-size: 1rem;
+    color: #6c757d !important;
+}
+
+.card-body p {
+    margin-bottom: 0.5rem;
+    font-size: 1.07rem;
+}
+
+.btn-outline-danger {
+    font-weight: 500;
+}
