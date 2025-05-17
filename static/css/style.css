@@ -285,11 +285,12 @@ h4 {
 }
 
 .help-head {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   /* justify-content: center;     */
   width: 280px;
+  box-shadow: 2px 2px 3px 3px rgba(153, 153, 153, 0.8);
 }
 
 .help-head p {
@@ -297,8 +298,11 @@ h4 {
   margin: 0;
 }
 
-
 .help-head i {
   font-size: 1.3rem;
   margin: 0 5px;
+}
+
+.hidden-item {
+  display: none;
 }
