@@ -1,4 +1,60 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Home Page</h1>
+
+<div class="container mt-5">
+    <!-- Cover Image Section -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+            <img src="{% static 'images/hero.png' %}" alt="Family Tech Help Cover"
+                class="img-fluid rounded-4 shadow-sm">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card shadow p-5 border-0 rounded-4 custom-card">
+                <h1 class="mb-4 text-center">👨‍👩‍👧‍👦<em> Welcome to <strong>Family Tech Help</strong></em></h1>
+
+           <p class="text-center mt-4 highlight-quote fs-4">
+                    Everyday tech issues, explained simply — so you can get back to what matters.
+                </p>
+
+
+                <hr class="my-4">
+
+                <p class="fade-in fade-in-delay-4">
+                    Whether your Wi-Fi won’t connect, the sound on your laptop just disappeared, or your phone battery
+                    is draining way too fast — we’ve all been there.
+                    <strong>Family Tech Help</strong> is designed to guide you through <em>those exact everyday
+                        problems</em> that frustrate so many of us.
+                </p>
+
+                <p class="fade-in fade-in-delay-4">
+                    We built this app especially for older family members and anyone who finds tech confusing or
+                    overwhelming. Our mission? Make technology feel less like a puzzle
+                    and more like a conversation.
+                </p>
+                <h4 class="mt-4 fade-in fade-in-delay-4">🔧 What You’ll Find Here</h4>
+                <ul class="mt-2 highlight-quote  fade-in fade-in-delay-4">
+                    <li>📱 Solutions to the most common problems on Android, iOS, Windows, macOS, and Linux</li>
+                    <li>🤖 A friendly chatbot to help users step-by-step — no tech talk required</li>
+                    <li>📖 Clear instructions with no fluff, no jargon — just plain language</li>
+                    <li>🧓 Thoughtfully designed for seniors and tech beginners</li>
+                </ul>
+
+                <h4 class="mt-4 fade-in fade-in-delay-4">💡 Why Use Family Tech Help?</h4>
+                <p class="fade-in fade-in-delay-4">
+                    Because tech shouldn’t be frustrating. Whether it’s helping your grandparents fix their phone, or
+                    figuring out why your own computer froze again,
+                    we’re here to make those annoying little issues easier to solve — together.
+                </p>
+
+                <p class="text-center mt-4 highlight-quote fs-4">
+                    Fix real problems, support your family, and make tech feel human again. 🧩
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

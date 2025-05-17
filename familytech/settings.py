@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-mf%=k3)hcx_%7kki(+co%(rv77tcuday2i@-gn7ys@xst41_ek
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '.gitpod.io'
+    'localhost',
+    '127.0.0.1',
+    '.gitpod.io',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'technicalissues',
     'chatbot',
+    'userprofile',
 ]
 
 MIDDLEWARE = [
@@ -112,6 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/profile/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -129,6 +135,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
