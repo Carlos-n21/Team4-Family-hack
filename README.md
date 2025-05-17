@@ -128,7 +128,101 @@ Wis.
 [Back to top](#top)
 
 ### Users
-Uss.
+
+
+Persona 1: Tech-Savvy Student
+
+    Name: Alex Chen
+
+    Age: 20
+
+    Occupation: Computer Science Student
+
+    Devices Used: Laptop (primary), Smartphone (for quick lookups)
+
+    Tech Skill Level: Intermediate to Advanced
+
+    Goals:
+
+        Find quick solutions for coding bugs or software installation issues
+
+        Access reliable technical instructions between classes or while commuting
+
+    Pain Points:
+
+        Frustrated with vague or outdated solutions on forums
+
+        Needs mobile-friendly content for use on the go
+
+    Behaviors:
+
+        Searches Google or Reddit first, but prefers visual step-by-step guides
+
+        Frequently bookmarks or saves useful guides to read later
+
+Persona 2: Non-Tech-Savvy Professional
+
+    Name: Linda Martinez
+
+    Age: 42
+
+    Occupation: Office Manager at a small business
+
+    Devices Used: Work Laptop (primary), Smartphone (occasionally)
+
+    Tech Skill Level: Beginner
+
+    Goals:
+
+        Fix common issues like printer setup, Wi-Fi problems, or email errors
+
+        Follow simple, jargon-free instructions
+
+    Pain Points:
+
+        Intimidated by overly technical explanations
+
+        Needs clear visuals or videos to follow along
+
+    Behaviors:
+
+        Relies on step-by-step guides or video tutorials
+
+        Often searches “[problem] + how to fix” on Google
+
+Persona 3: Freelance IT Support Technician
+
+    Name: Rajiv Patel
+
+    Age: 33
+
+    Occupation: Freelance IT Support Specialist
+
+    Devices Used: Smartphone (on-site visits), Laptop (at home/office)
+
+    Tech Skill Level: Advanced
+
+    Goals:
+
+        Quickly access troubleshooting steps while assisting clients on-site
+
+        Stay updated with latest fixes and tech tools
+
+    Pain Points:
+
+        Time-sensitive troubleshooting—needs concise and accurate content
+
+        Frustrated by guides that aren’t mobile-optimized
+
+    Behaviors:
+
+        Skims guides for relevant commands or screenshots
+
+        Prefers content with clear structure, quick reference sections, or downloadable PDFs
+
+
+
+
 
 [Back to top](#top)
 
