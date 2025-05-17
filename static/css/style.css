@@ -257,7 +257,7 @@ h4 {
 .toggle-group {
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   margin: 20px 0;
 }
 
@@ -265,13 +265,13 @@ h4 {
   background-color: #cac8c8;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
   width: 300px;
   border-radius: 10px;
   padding: 3px;
 }
 
-.toggle-container .toggle-item{
+.toggle-container .toggle-item {
   margin: 0;
   width: 150px;
   text-align: center;
@@ -291,6 +291,9 @@ h4 {
   /* justify-content: center;     */
   width: 280px;
   box-shadow: 2px 2px 3px 3px rgba(153, 153, 153, 0.8);
+  user-select: none;
+  cursor: pointer;
+
 }
 
 .help-head p {
@@ -305,4 +308,8 @@ h4 {
 
 .hidden-item {
   display: none;
+}
+
+.rotate {
+  transform: rotate(-180deg);
 }
