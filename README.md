@@ -66,27 +66,34 @@ Live site: []()
 [Back to top](#top)
 
 # Overview
-Bis.<br>
+FamilyTech is a simple site that provides information about how to do some tasks on mobiles devices and laptops or computers.<br>
 
-Ience.
+It also has a chat-bot function in case the user doesn't finds the information he needs.<br>
+
+It aims to be an interactive and responsive site in different devices.<br>
+
+The site goal is to help the user overcome the strugle with different issues while trying to open an app, sending a message or adding a new contact.<br>
 
 ## UX - User Experience
-T:
+For this site we opted to use smooth colours that could help the user to relax and be confident with the solution provided.<br>
 
-  s.
+Some of the features available
+  - Access to posts with guides for different devices
+  - Chat-bot for extra help, in case no help is available on the site
 
 [Back to top](#top)
 
 ## Colour Scheme
-Fo
-#ffffff - 
-#4b5563 - 
-#4299e1 - 
-#2d3748 - 
-#4b5563 - 
 
-https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/
+#ffffff - White
+#4b5563 - Bright Grey
+#4299e1 - Tufts Blue
+#2d3748 - Japanese Indigo
+#4b5563 - Independence
 
+ - [Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
+
+Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 
 <img src="" style="width: 90%; height: 60%;"><br>
 
@@ -106,13 +113,12 @@ Fonts used for this website were:
   - [Roboto](https://fonts.google.com/specimen/Roboto)
   - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
   
-
   
 [Back to top](#top)
 
 # Project Planning
 
-Thy.<br>
+.<br>
 
 ## Strategy
 
