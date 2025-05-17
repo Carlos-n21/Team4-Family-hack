@@ -127,3 +127,26 @@ h4 {
 .guide-expanded i {
   font-size: 3rem;
 }
+
+.toggle-group {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.toggle-container {
+  background-color: lightgreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 300px;
+  border-radius: 10px;
+}
+
+.toggle-container p{
+  /* display: inline-block; */
+  margin: 15px 10px;
+  border: 1px solid blue;
+  width: 150px;
+}
