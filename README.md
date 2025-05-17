@@ -1,6 +1,6 @@
 ![image]()
 
-#   <a id="top"/>
+# FamilyTech  <a id="top"/>
 
 <img src=""> 
 
@@ -12,7 +12,7 @@ The main objective of this Haackathon was to build a site/app that could provide
 
 That would be achieved through showing guides for the users to fix their IT issues.
 
-Live site: []()
+Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 
 ## Table of Contents
 - []()
@@ -118,23 +118,40 @@ Fonts used for this website were:
 
 # Project Planning
 
-.<br>
+Initial idea for the chat was to create help guides for tasks done at home, not just with technology, but also with household appliances and where to find different things.<br>
+
+After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances, if possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
+
+With this done, different areas of the site (back-end, front-end, colours, etc, where picked by different members of the team.<br>
+
+On the first day the repository and project were created with all members added with admin rights.<br>
+
+Heroku deployment done successfully on the third day.<br>
+
+The team kept working on improving the site features and fixing errors.<br>
 
 ## Strategy
 
-  - Us
+  - Simple and appealing layout and colors
+  - User-friendly platform
+  - Menus easy to locate and select
+  - Consistent UX design throughout different platforms
+  - Allow for future improvements and addition of new features
 
 ## Agile Methodologies
-B.
+FamilyTech was the first hackathon for one of our members and a come back experience for the rest of the group.<br>
 
-Issues and features can be seen on [GitHub Project Board]().
+In the begining sounded a bit tricky to check which role different members could get, but with communication within the team we were able to get everyone to work in different areas of the website, and slowly start building the project.<br>
 
-Wis.
+We did our best to have 2 huddles per day, with one after lunch and another later in the day to discuss the site progress and what needed to be changed, improved and what was done well.<br>
+
+Good and frequent (as possible) communication helped to keep the project on track, with extra huddles, as needed to check inidividual issues and try to solve them.<br>
+
+Issues and features can be seen on [GitHub Project Board](https://github.com/users/Carlos-n21/projects/19).<br>
 
 [Back to top](#top)
 
 ### Users
-
 
 Persona 1: Tech-Savvy Student
 
@@ -201,7 +218,7 @@ Persona 3: Freelance IT Support Technician
     Name: Rajiv Patel
 
     Age: 33
-
+https://github.com/users/Carlos-n21/projects/19
     Occupation: Freelance IT Support Specialist
 
     Devices Used: Smartphone (on-site visits), Laptop (at home/office)
