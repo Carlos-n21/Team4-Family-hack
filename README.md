@@ -47,7 +47,7 @@ Live site: []()
 - [Bugs to fix](#bugs-to-fix)
 - [AI Implementation and Orchestration](#ai-implementaion-and-orchestration)
     - [Code Generation](#code-generation)
-    - [Debugging](#debugging)
+    - [Debugging](#debugging)#429
     - [Code Optimization](#code-optimisation)
     - [Impact on Workflow](#impact-on-workflow)
 - [Testing](#testing)
@@ -79,13 +79,14 @@ T:
 
 ## Colour Scheme
 Fo
+#ffffff - 
+#4b5563 - 
+#4299e1 - 
+#2d3748 - 
+#4b5563 - 
 
-#581CA0 - Purple (from the canva mind map)<br>
-#312fa6 - Indigo<br>
-#b12e5d - Roseberry<br>
-#0088cc - Bright blue<br>
-#121212 - Dark background<br>
-#ffffff - White<br>
+
+
 
 <img src="" style="width: 90%; height: 60%;"><br>
 
@@ -102,10 +103,9 @@ Fo
 ## Typography
 Fonts used for this website were:
 
-  - [open sans](https://fonts.google.com/specimen/Open+Sans)
-  - [Segoe UI](https://learn.microsoft.com/en-us/typography/font-list/segoe-ui)
-  - [Helvetica-Neue](https://www.cdnfonts.com/helvetica-neue-5.font)
+  -'Roboto', sans-serif
 
+  
 [Back to top](#top)
 
 # Project Planning
