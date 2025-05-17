@@ -1,15 +1,37 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-sm rounded-4">
-                <div class="card-body p-4 text-center">
-                    <h2 class="mb-4">Logged Out</h2>
-                    <p>You have successfully logged out.</p>
-                    <a href="{% url 'login' %}" class="btn btn-primary mt-3">Log in again</a>
-                    <a href="{% url 'home' %}" class="btn btn-outline-secondary mt-3 ms-2">Return to Home</a>
+<link rel="stylesheet" href="{% static 'css/authentication.css' %}" type="text/css">
+
+<div class="auth-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Logged Out</h2>
+                        <p>You have been successfully logged out</p>
+                        <div class="auth-header-decoration"></div>
+                    </div>
+                    
+                    <div class="auth-body text-center">
+                        <p class="mb-4">Thank you for using Family Tech Help!</p>
+                        
+                        <div class="d-grid mb-3">
+                            <a href="{% url 'login' %}" class="auth-btn-primary">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                Log In Again
+                            </a>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <a href="{% url 'home' %}" class="auth-btn-secondary">
+                                <i class="fas fa-home me-2"></i>
+                                Return to Home
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
