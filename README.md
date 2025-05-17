@@ -6,7 +6,11 @@
 
 ## Introduction
 
-Th.<br>
+This website was created for Code Institute, May Hackathon - themed: A Family Hackathon.<br>
+
+The main objective of this Haackathon was to build a site/app that could provide support for IT issues that different members of the family generally have and how we could help them with these issues.
+
+That would be achieved through showing guides for the users to fix their IT issues.
 
 Live site: []()
 
