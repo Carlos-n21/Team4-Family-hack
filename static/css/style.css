@@ -313,3 +313,7 @@ h4 {
 .rotate {
   transform: rotate(-180deg);
 }
+
+.help-body {
+  padding: 12px 5px 10px;
+}
