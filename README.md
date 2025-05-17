@@ -85,7 +85,7 @@ Fo
 #2d3748 - 
 #4b5563 - 
 
-
+https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/
 
 
 <img src="" style="width: 90%; height: 60%;"><br>
@@ -103,7 +103,9 @@ Fo
 ## Typography
 Fonts used for this website were:
 
-  -'Roboto', sans-serif
+  - [Roboto](https://fonts.google.com/specimen/Roboto)
+  - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
+  
 
   
 [Back to top](#top)
@@ -131,7 +133,12 @@ Uss.
 [Back to top](#top)
 
 ### Wireframes
-Initial wireframes for desktop view as follows:
+Initial wireframes - desktop view:
+
+<img src="">
+<img src="">
+
+Initial wireframes - mobile view:
 
 <img src="">
 <img src="">
@@ -146,6 +153,11 @@ Afns.<br>
 
 ### Imagery
 Bag)
+
+https://dadbloguk.com/wp-content/uploads/2015/12/Family.jpg
+https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894
+https://davidyorkhomehealthcare.com/wp-content/uploads/2018/03/elderly-technology.jpg
+
 
 [Back to top](#top)
 
@@ -173,7 +185,6 @@ An
 ### Libraries
   - Django v3.2.19
   - Google Fonts
-  - Tailwind CSS
 
 ### Tools and Programs
   - Balsamiq wireframe
