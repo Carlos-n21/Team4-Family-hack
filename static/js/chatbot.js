@@ -12,7 +12,7 @@ const createChatLi = (message, className) => {
   let chatContent =
     className === "outgoing"
       ? `<p></p>`
-      : `<span><i class="fa-solid fa-people-roof"></i></span> <p></p>`;
+      : `<span><i class="fa-solid fa-people-roof"></i></span><p></p>`;
   chatLi.innerHTML = chatContent;
   chatLi.querySelector("p").textContent = message;
   return chatLi;
