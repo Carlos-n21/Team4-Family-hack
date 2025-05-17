@@ -153,8 +153,26 @@ h4 {
 }
 
 .toggle-item.selected {
-  /* border: 1px solid blue; */
   background-color: #f8f6f6;
   height: 25px;
   border-radius: 10px;
+}
+
+.help-head {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  /* justify-content: center;     */
+  width: 280px;
+}
+
+.help-head p {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+
+.help-head i {
+  font-size: 1.3rem;
+  margin: 0 5px;
 }
