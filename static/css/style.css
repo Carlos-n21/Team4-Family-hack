@@ -285,11 +285,9 @@ h4 {
 }
 
 .help-head {
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
-  /* justify-content: center;     */
-  width: 280px;
+  width: 100%;
   box-shadow: 2px 2px 3px 3px rgba(153, 153, 153, 0.8);
   user-select: none;
   cursor: pointer;
