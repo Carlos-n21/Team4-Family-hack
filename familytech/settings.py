@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.gitpod.io',
+    '.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
