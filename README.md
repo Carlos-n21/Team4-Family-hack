@@ -1,5 +1,3 @@
-![image]()
-
 # FamilyTech  <a id="top"/>
 
 <img src=""> 
@@ -218,7 +216,7 @@ Persona 3: Freelance IT Support Technician
     Name: Rajiv Patel
 
     Age: 33
-https://github.com/users/Carlos-n21/projects/19
+
     Occupation: Freelance IT Support Specialist
 
     Devices Used: Smartphone (on-site visits), Laptop (at home/office)
@@ -244,9 +242,6 @@ https://github.com/users/Carlos-n21/projects/19
         Prefers content with clear structure, quick reference sections, or downloadable PDFs
 
 
-
-
-
 [Back to top](#top)
 
 ### Wireframes
@@ -269,12 +264,9 @@ Afns.<br>
 [Back to top](#top)
 
 ### Imagery
-Bag)
+Image used on the homepage:
 
-https://dadbloguk.com/wp-content/uploads/2015/12/Family.jpg
-https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894
-https://davidyorkhomehealthcare.com/wp-content/uploads/2018/03/elderly-technology.jpg
-
+- [Elderly using technology](https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894)
 
 [Back to top](#top)
 
@@ -291,12 +283,10 @@ An
   - CSS
   - JavaScript
   - Python
-  - PostgreSQL
   - Git
   - Github
   - VS-Code
   - Django
-  - Cloudinary
   - Heroku
 
 ### Libraries
@@ -376,28 +366,6 @@ Make the necessary migrations again.
 
 [Back to top](#top)
 
-### Cloudinary API
-Cloudinary provides a cloud hosting solution for media storage. All users uploaded images in the FreeFid project are hosted here.
-
-Set up a new account at Cloudinary and add your Cloudinary API environment variable to your env.py and Heroku Config Vars. In your project workspace:
-
-  - Add Cloudinary libraries to INSTALLED_APPS in settings.py
-  - In the order:<br>
-   'cloudinary_storage',<br>
-   'django.contrib.staticfiles',  <br>
-   'cloudinary',<br>
-
-  - Add to env.py and link up with settings.py: os.environ["CLOUDINARY_URL"]="cloudinary://...."
-  - Set Cloudinary as storage for media and static files in settings.py:
-  - STATIC_URL = '/static/'<br>
-  STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'<br>  
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]<br>
-  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')‌<br>  
-  MEDIA_URL = '/media/'<br>  
-  DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'<br>
-
-[Back to top](#top)
-
 ### Heroku deployment
 To start the deployment process , please follow the below steps:
 
@@ -452,47 +420,6 @@ A copy of the original repository can be made through GitHub. Please follow the 
   - You should now have access to a forked copy of this repository in your Github account.
   - Follow the above Django Project Steps if you wish to work on the project.
 
-[Back to top](#top)
-
-## Tailwind CSS Setup
-
-These instructions will guide you through setting up Tailwind CSS in your Django project using django-tailwind.
-
-### Prerequisites
-
--   Node.js and npm installed. You can download them from [https://nodejs.org](https://nodejs.org).
-
-### Installation
-
-1.  Install django-tailwind:
-
-    ```bash
-    pip install django-tailwind==4.0.1
-    ```
-
-2.  Initialize Tailwind CSS for your app (replace "theme" with your app name if different):
-
-    ```bash
-    python manage.py tailwind init --app-name theme
-    ```
-
-3.  Add `tailwind` and your app to `INSTALLED_APPS` in `settings.py`:
-
-    ```python
-    INSTALLED_APPS = [
-        ...
-        'tailwind',
-        'theme',
-    ]
-    ```
-
-    Also, add `TAILWIND_APP_NAME = 'theme'` to your `settings.py` file.
-
-4.  Install the npm dependencies:
-
-    ```bash
-    python manage.py tailwind install
-    ```
 
 [Back to top](#top)
 
