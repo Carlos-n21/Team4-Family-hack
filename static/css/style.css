@@ -70,6 +70,7 @@ h4 {
   justify-content: space-around;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .device .body {
@@ -97,7 +98,6 @@ h4 {
   padding: 2px;
   border-radius: 10px;
   text-transform: capitalize;
-  /* background-color: #a40e0e; */
   color: black;
   border: 1px solid black;
   transition: 0.25s;
@@ -129,24 +129,32 @@ h4 {
 }
 
 .toggle-group {
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;  
+  margin: 20px 0;
 }
 
 .toggle-container {
-  background-color: lightgreen;
+  background-color: #cac8c8;
   display: flex;
   align-items: center;
   justify-content: center;  
   width: 300px;
   border-radius: 10px;
+  padding: 3px;
 }
 
-.toggle-container p{
-  /* display: inline-block; */
-  margin: 15px 10px;
-  border: 1px solid blue;
+.toggle-container .toggle-item{
+  margin: 0;
   width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.toggle-item.selected {
+  /* border: 1px solid blue; */
+  background-color: #f8f6f6;
+  height: 25px;
+  border-radius: 10px;
 }
