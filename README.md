@@ -6,7 +6,11 @@
 
 ## Introduction
 
-Th.<br>
+This website was created for Code Institute, May Hackathon - themed: A Family Hackathon.<br>
+
+The main objective of this Haackathon was to build a site/app that could provide support for IT issues that different members of the family generally have and how we could help them with these issues.
+
+That would be achieved through showing guides for the users to fix their IT issues.
 
 Live site: []()
 
@@ -43,7 +47,7 @@ Live site: []()
 - [Bugs to fix](#bugs-to-fix)
 - [AI Implementation and Orchestration](#ai-implementaion-and-orchestration)
     - [Code Generation](#code-generation)
-    - [Debugging](#debugging)
+    - [Debugging](#debugging)#429
     - [Code Optimization](#code-optimisation)
     - [Impact on Workflow](#impact-on-workflow)
 - [Testing](#testing)
@@ -75,13 +79,14 @@ T:
 
 ## Colour Scheme
 Fo
+#ffffff - 
+#4b5563 - 
+#4299e1 - 
+#2d3748 - 
+#4b5563 - 
 
-#581CA0 - Purple (from the canva mind map)<br>
-#312fa6 - Indigo<br>
-#b12e5d - Roseberry<br>
-#0088cc - Bright blue<br>
-#121212 - Dark background<br>
-#ffffff - White<br>
+https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/
+
 
 <img src="" style="width: 90%; height: 60%;"><br>
 
@@ -98,10 +103,11 @@ Fo
 ## Typography
 Fonts used for this website were:
 
-  - [open sans](https://fonts.google.com/specimen/Open+Sans)
-  - [Segoe UI](https://learn.microsoft.com/en-us/typography/font-list/segoe-ui)
-  - [Helvetica-Neue](https://www.cdnfonts.com/helvetica-neue-5.font)
+  - [Roboto](https://fonts.google.com/specimen/Roboto)
+  - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
+  
 
+  
 [Back to top](#top)
 
 # Project Planning
@@ -127,7 +133,12 @@ Uss.
 [Back to top](#top)
 
 ### Wireframes
-Initial wireframes for desktop view as follows:
+Initial wireframes - desktop view:
+
+<img src="">
+<img src="">
+
+Initial wireframes - mobile view:
 
 <img src="">
 <img src="">
@@ -142,6 +153,11 @@ Afns.<br>
 
 ### Imagery
 Bag)
+
+https://dadbloguk.com/wp-content/uploads/2015/12/Family.jpg
+https://cdn.shopify.com/s/files/1/0656/3289/5229/files/Elderly_Using_Technology_Stock_Imagery_TapTec.png?v=1695582894
+https://davidyorkhomehealthcare.com/wp-content/uploads/2018/03/elderly-technology.jpg
+
 
 [Back to top](#top)
 
@@ -169,7 +185,6 @@ An
 ### Libraries
   - Django v3.2.19
   - Google Fonts
-  - Tailwind CSS
 
 ### Tools and Programs
   - Balsamiq wireframe
