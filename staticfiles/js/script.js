@@ -6,6 +6,8 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
 
+    console.log('Test display')
+
     // Add eventListeners to .rod elements
     addHelpEventListeners();
 
@@ -26,5 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headElement.nextElementSibling.classList.toggle('hidden-item');
         const arrowElement = headElement.querySelector(".arrow-icons");
         arrowElement.classList.toggle('rotate');
+        console.log('Object below')
+        console.log(data['mobile']['icon'])
     }
 });
