@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
      */
     function addHelpEventListeners() {
         const helpHeads = document.querySelectorAll(".help-head");
-        console.log('Lets get them')
         for (let el of helpHeads) {
             el.addEventListener('click', toggleHelpExpand);
 
@@ -27,6 +26,5 @@ document.addEventListener("DOMContentLoaded", function () {
         headElement.nextElementSibling.classList.toggle('hidden-item');
         const arrowElement = headElement.querySelector(".arrow-icons");
         arrowElement.classList.toggle('rotate');
-        console.log('Clicked')
     }
 });
