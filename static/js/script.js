@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    /**
+     * Toggles display of description elements
+     * 
+     * @param {Event} e - click event triggered when the header element is clicked.
+     */    
     function toggleHelpExpand(e) {
         const headElement = e.currentTarget;
         headElement.nextElementSibling.classList.toggle('hidden-item');
