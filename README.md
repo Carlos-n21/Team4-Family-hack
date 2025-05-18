@@ -505,21 +505,19 @@ Website manually tested on the following devices/browsers for responsiveness:
 ## Future Features
 - Us
 
-## 
+## Credits
 
 - This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
 
 ### Code References
-We.
-<br>
+
 
 ### Acknowledgements
-Th
+
 
 ### Owner Details
 This website was created by . Students of Code Institute.<br>
 
-  - [)
 
 [Back to top](#top)
 
