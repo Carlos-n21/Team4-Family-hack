@@ -4,369 +4,107 @@
 
 <!-- Device categories -->
 <section class="device-categories">
-    <h2>Select device</h2>
-    <div class="devices-container">
-        <!-- Mobile -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/mobile.png' %}" alt="Mobile icon" class="device-icon mb-2">
-                <h3>Mobile Devices</h3>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Find help for your device</h1>
+        
+        <div class="row justify-content-center">
+            <!-- Mobile -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/mobile.png' %}" alt="Mobile icon" class="device-icon mb-3">
+                        <h3>Mobile Devices</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your smart phones and tablets</p>
+                        <a href="{% url 'device_guide' 'mobile' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="body">
-                <p>Get help with your smart phones and tablets</p>
-                <button class="device-btn" onclick="toggleGuide(this)">See guide</button>
-                <div class="device-guide hidden">
-                    <!-- Expanded guide section -->
-                    <section class="guide guide-expanded">
-                        <div class="toggle-group">
-                            <div class="toggle-container">
-                                <p class="toggle-item selected">'How to' guide</p>
-                                <p class="toggle-item">Troubleshooting</p>
-                            </div>
-                        </div>
-                        <div class="help-group guide">
-                            <!-- Connect to Wifi -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Connect to wifi</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Open the <strong>Settings</strong> app.</li>
-                                        <li>Tap <strong>Wi-Fi</strong>.</li>
-                                        <li>Make sure the Wi-Fi is turned on.</li>
-                                        <li>You should see a list of available networks. Tap the one you want to join.
-                                        </li>
-                                        <li>Enter the password if asked, and then hit <strong>Connect</strong>.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Change screen brightness -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Change screen brightness</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Swipe down from the top of your screen.</li>
-                                        <li>You should see a little brightness slider - move it left or right to make
-                                            your screen darker or
-                                            brighter.</li>
-                                        <li>Or, you can go to <strong>Settings</strong> > <strong>Display</strong> and
-                                            adjust it there.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Set an alarm -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Set an alarm</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Open the <strong>Clock</strong> app.</li>
-                                        <li>Tap the <strong>Alarm</strong> tab.</li>
-                                        <li>Tap the <strong>+</strong> icon to add a new alarm.</li>
-                                        <li>Set the time and any other preferences, then tap <strong>Save</strong>.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="help-group troubleshoot">
-                            <!-- Sound not working -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Sound not working</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Check the volume settings to ensure it's turned up.</li>
-                                        <li>Test with a different app to rule out the possibility of app-related issues.
-                                        </li>
-                                        <li>If you are using headphones, make sure they are plugged in properly.</li>
-                                        <li>If the issue persists, try restarting your phone or resetting sound
-                                            settings.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Bluetooth troubleshoot -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Bluetooth not connecting</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Make sure Bluetooth is turned on in your <strong>Settings</strong>.</li>
-                                        <li>Ensure the device you are connecting to is also in a pairing mode or
-                                            discoverable.</li>
-                                        <li>Try 'forgetting' the device in your Bluetooth settings and reconnecting.
-                                        </li>
-                                        <li>If the issue persists, restart both devices and try again.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Any App troubleshoot -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Mobile App not working properly</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>First, try closing and restarting the app.</li>
-                                        <li>If that doesn't help, check for updates for the app in the app store.</li>
-                                        <li>If it is still not working, try restarting your phone.</li>
-                                        <li>As a last resort, clear the app's cache or reinstall it.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+            <!-- Laptop/Desktops -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/laptop.png' %}" alt="Laptop icon" class="device-icon mb-3">
+                        <h3>Laptops/Desktops</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your laptops and desktops</p>
+                        <a href="{% url 'device_guide' 'laptop' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Laptop/Desktops -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/laptop.png' %}" alt="Laptop icon" class="device-icon mb-2">
-                <h3>Laptops/Desktops</h3>
-            </div>
-            <div class="body">
-                <p>Get help with your laptops and desktops</p>
-                <button class="device-btn" onclick="toggleGuide(this)">See guide</button>
-                <div class="device-guide hidden">
-                    <!-- Expanded guide section -->
-                    <section class="guide guide-expanded">
-                        <div class="toggle-group">
-                            <div class="toggle-container">
-                                <p class="toggle-item selected">'How to' guide</p>
-                                <p class="toggle-item">Troubleshooting</p>
-                            </div>
-                        </div>
-                        <div class="help-group guide">
-                            <!-- Connect to Wifi -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Connect to wifi</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li>Check the <strong>router</strong> connection.</li>
-                                        <li>Restart by <strong>Unplugging</strong>.</li>
-                                        <li>Restart your computer.</li>
-                                        <li>Check Wi-Fi Settings.
-                                            Windows: Use the Wi-Fi icon to confirm you're connected.<br>
-                                            Mac: Use the top-right Wi-Fi icon to join your network.
-                                        </li>
-                                        <li><strong> Forget and Reconnect</strong><br>
-                                            Windows: Settings > Network > Manage Known Networks > Forget and
-                                            reconnect.<br>
-                                            Mac: System Preferences > Network > Remove and rejoin Wi-Fi.
-                                        </li>
-                                        <li><strong> Update Wi-Fi Drivers</strong><br>
-                                            Windows: Device Manager > Network Adapters > Update driver.<br>
-                                            Mac: Check for system updates in Apple Menu > Software Update.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Computer won’t turn on -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Computer won’t turn on</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li><strong> Check the Power Source</strong><br>
-                                            Laptop: Make sure your laptop is plugged in, and check if the charging light
-                                            is on. It may take a few minutes to show signs of life if completely
-                                            drained.<br>
-                                            Desktop: Ensure the power cable is connected to both the wall and the power
-                                            supply unit.
-                                        </li>
-                                        <li><strong> Try a Hard Reset</strong><br>
-                                            Laptop: Hold the power button for 10-15 seconds, then press it again.<br>
-                                            Desktop: Unplug from power for 30 seconds, plug back in, then power on.
-                                        </li>
-                                        <li><strong> Check the Display</strong><br>
-                                            Laptop: Adjust brightness or check for screen damage.<br>
-                                            Desktop: Ensure the monitor is correctly connected and powered on.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Computer is running slow -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Computer is running slow</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li><strong> Restart the Computer</strong><br>
-                                            Close all programs and restart to clear temporary files.
-                                        </li>
-                                        <li><strong> Close Unnecessary Programs</strong><br>
-                                            Windows: Ctrl + Shift + Esc to open Task Manager.<br>
-                                            Mac: Cmd + Option + Esc to open Force Quit and close unused apps.
-                                        </li>
-                                        <li><strong> Free Up Disk Space</strong><br>
-                                            Windows: Settings > System > Storage > Disk Cleanup.<br>
-                                            Mac: Finder > About This Mac > Storage. Remove unused files/apps.
-                                        </li>
-                                        <li><strong> Check for Malware</strong><br>
-                                            Windows: Use Windows Defender or a trusted antivirus.<br>
-                                            Mac: Use a Mac-compatible antivirus tool.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="help-group troubleshoot">
-                            <!-- Computer Is Not Responding (Frozen)-->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Computer is not responding (Frozen)</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li><strong> Try a Keyboard Shortcut to Close the Program</strong><br>
-                                            Windows: Press Ctrl + Alt + Delete to open Task Manager and select End Task
-                                            for any frozen program.<br>
-                                            Mac: Press Cmd + Option + Esc to open Force Quit, then close the
-                                            unresponsive app.
-                                        </li>
-                                        <li><strong> Restart the Computer</strong><br>
-                                            If the above doesn't work, press and hold the power button for 10-15 seconds
-                                            to force a shutdown, then turn the computer back on.
-                                        </li>
-                                        <li><strong> Check for Software Updates</strong><br>
-                                            Windows: Go to Settings > Update & Security > Windows Update > Check for
-                                            updates.<br>
-                                            Mac: Apple Menu > System Preferences > Software Update.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Keyboard or Mouse Not Working -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Keyboard or Mouse Not Working</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li><strong> Check the Connection</strong><br>
-                                            Laptop: If using an external mouse or keyboard, ensure they are plugged in
-                                            properly.<br>
-                                            Desktop: If using a wireless keyboard/mouse, check the batteries or
-                                            reconnect the USB receiver.
-                                        </li>
-                                        <li><strong> Restart the Computer</strong><br>
-                                            Sometimes restarting can help fix minor issues with input devices.
-                                        </li>
-                                        <li><strong> Check Keyboard and Mouse Drivers</strong><br>
-                                            Windows: Go to Device Manager, right-click on Keyboards or Mice and other
-                                            pointing devices, and select Update Driver.<br>
-                                            Mac: Check System Preferences > Keyboard or Mouse to make sure the settings
-                                            are correct.
-                                        </li>
-                                        <li><strong> Test with Another Device</strong><br>
-                                            Try connecting the keyboard or mouse to another computer to see if the
-                                            problem is with the device itself.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Computer Display is Too Dim (Brightness) -->
-                            <div class="help-item">
-                                <div class="help-head">
-                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
-                                    <p>Computer Display is Too Dim (Brightness)</p>
-                                </div>
-                                <div class="help-body hidden-item">
-                                    <ul>
-                                        <li><strong>Adjust the Brightness Manually</strong><br>
-                                            Laptop: Use the Fn key + brightness keys (sun symbol) to adjust screen
-                                            brightness.<br>
-                                            Desktop: Use physical buttons on the monitor to adjust brightness.
-                                        </li>
-                                        <li><strong> Check Power Settings</strong><br>
-                                            Windows: Go to Settings > System > Display. Adjust brightness and power
-                                            settings to prevent dimming.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+
+            <!-- TV -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-3">
+                        <h3>TV</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your TVs</p>
+                        <a href="{% url 'device_guide' 'tv' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- TV -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-2">
-                <h3>TV</h3>
+
+            <!-- Router -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/router.jpg' %}" alt="Router icon" class="device-icon mb-3">
+                        <h3>Routers</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your Routers</p>
+                        <a href="{% url 'device_guide' 'router' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="body">
-                <p>Get help with your TVs</p>
-                <button class="device-btn">See guide</button>
+
+            <!-- Smart Meter -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/smartmeter.jpg' %}" alt="Smart Meter icon" class="device-icon mb-3">
+                        <h3>Smart Meters</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your Smart Meters</p>
+                        <a href="{% url 'device_guide' 'smartmeter' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!-- Router -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-2">
-                <h3>Routers</h3>
-            </div>
-            <div class="body">
-                <p>Get help with your Routers</p>
-                <button class="device-btn">See guide</button>
-            </div>
-        </div>
-        <!-- Smart Meter -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-2">
-                <h3>Smart Meters</h3>
-            </div>
-            <div class="body">
-                <p>Get help with your Smart Meters</p>
-                <button class="device-btn">See guide</button>
-            </div>
-        </div>
-        <!-- Printers -->
-        <div class="device mobile">
-            <div class="head text-center">
-                <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-2">
-                <h3>Printers</h3>
-            </div>
-            <div class="body">
-                <p>Get help with your Printers</p>
-                <button class="device-btn">See guide</button>
+
+            <!-- Printers -->
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="device-card shadow-sm rounded-4 h-100">
+                    <div class="device-card-head text-center p-4">
+                        <img src="{% static 'images/printer.png' %}" alt="Printer icon" class="device-icon mb-3">
+                        <h3>Printers</h3>
+                    </div>
+                    <div class="device-card-body p-4 text-center">
+                        <p>Get help with your Printers</p>
+                        <a href="{% url 'device_guide' 'printer' %}" class="btn btn-primary device-btn">
+                            See guide
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-
-<script src="{% static 'js/script.js' %}"></script>
-<script>
-    function toggleGuide(button) {
-        const guide = button.nextElementSibling;
-        if (guide) {
-            guide.classList.toggle("hidden");
-        }
-    }
-</script>
 
 {% endblock %}
