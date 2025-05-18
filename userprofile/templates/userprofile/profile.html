@@ -2,10 +2,15 @@
 {% load static %}
 
 {% block content %}
-<div class="container py-5">
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container profile-section">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm rounded-4">
+      <div class="card profile-card">
+        <div class="profile-card-header">
+          <h3>Your Profile</h3>
+        </div>
         <div class="card-body d-flex flex-column align-items-center">
           <!-- Display user profile image if available, otherwise show default -->
           {% if user.profile.image and user.profile.image.url != '/media/profile_pics/no-images.png' %}
@@ -32,8 +37,8 @@
             <button type="submit" class="btn btn-primary">Upload Photo</button>
           </form>
 
-          <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm">
-            🚪 Sign Out
+          <a href="{% url 'logout' %}" class="btn profile-signout-btn custom-blue-btn">
+            <i class="fas fa-arrow-right-from-bracket me-2"></i> Sign Out
           </a>
         </div>
       </div>
