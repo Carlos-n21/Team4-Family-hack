@@ -165,6 +165,14 @@ h4 {
   padding-top: 1rem;
 }
 
+.device-icon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  padding: 10px; /* Add space inside the image container */
+}
+
+
 .device-categories h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -197,7 +205,7 @@ h4 {
 }
 
 .device .head {
-  background-color: #d0e3fc;
+  background-color: #fff;
   height: 150px;
   justify-content: space-around;
   border-top-left-radius: 10px;
@@ -493,3 +501,6 @@ h4 {
       display: none;
   }
 }
+
+
+
