@@ -349,6 +349,7 @@ h4 {
 .help-head p {
   font-size: 1.3rem;
   margin: 0;
+  text-align: left;
 }
 
 .help-head i {
