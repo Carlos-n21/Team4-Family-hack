@@ -59,6 +59,7 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Media References](#media-references)
     - [Acknowledgments](#acknowledgements)
     - [Owner Details](#owner-details)
+- [Chatbot](#chatbot-feature)
 
 
 [Back to top](#top)
@@ -483,7 +484,10 @@ Website manually tested on the following devices/browsers for responsiveness:
 ## Future Features
 - Us
 
-## Credits
+## 
+
+- This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
+
 ### Code References
 We.
 <br>
@@ -497,4 +501,32 @@ This website was created by . Students of Code Institute.<br>
   - [)
 
 [Back to top](#top)
+
+
+## Chatbot Feature
+
+![](docs/chatbot.png)
+
+### Overview
+The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
+
+### How to Use
+- Open the 'Chatbot' section from the navigation menu
+- Type your question in the chat box and press Enter
+- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
+
+### Key Features
+- Natural language Q&A for family tech problems
+- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
+- Integrated in the site for real-time help
+
+### Error Handling
+  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
+
+  ![](docs/errormsg.png)
+
+  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
+
+  ![](docs/networkerrormsg.png)
+
 
