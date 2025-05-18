@@ -1,5 +1,7 @@
 # FamilyTech
 
+<img src="docs/amiresponsive.png"> 
+
 ## Introduction
 
 This website was created for Code Institute, May Hackathon - themed: A Family Hackathon.<br>
@@ -7,11 +9,6 @@ This website was created for Code Institute, May Hackathon - themed: A Family Ha
 The main objective of this Haackathon was to build a site/app that could provide support for IT issues that different members of the family generally have and how we could help them with these issues.
 
 That would be achieved through showing guides for the users to fix their IT issues.
-
-
-![](/docs/am_i_responsive_image.png)
-
-
 
 Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 
@@ -256,18 +253,14 @@ Persona 3: Freelance IT Support Technician
 ### Wireframes
 Initial wireframes - desktop view:
 
-<img src="">
-<img src="">
+<img src="docs/mobile-section.png">
+<img src="docs/profile.png">
+<img src="docs/task.png">
+<img src="docs/homepage.png">
 
 Initial wireframes - mobile view:
 
-<img src="">
-<img src="">
-
-The initial concept was based on:
-
-
-Afns.<br>
+<img src="docs/mobile-view.png">
 
 [Back to top](#top)
 
@@ -406,7 +399,6 @@ To begin this project from scratch, you must first create a new GitHub repositor
 
 This project was deployed using Heroku.
 
-
 #### On Heroku
 
 + Log into Heroku
@@ -474,7 +466,9 @@ Va
 ### HTML Validation
 Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input) to test the HTML on all webpages and updated as needed. No errors found after fixing as can be seen on the examples bellow.
 <details>
-  <img src="">
+  <img src="docs/html-validator-homepage">
+  <img src="docs/html-technical-issues.png">
+  <img src="docs/html-caht-bot.png">
 </details>
 
 [Back to top](#top)
@@ -483,7 +477,7 @@ Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input
 
 Used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) to test CSS style and no errors found.
 
-  
+<img src="docs/css-validation.png">
 
 ### Lighthouse Audit
 
