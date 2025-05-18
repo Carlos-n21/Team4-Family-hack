@@ -131,25 +131,195 @@
                 </div>
             </div>
         </div>
-        <!-- Laptop -->
+        <!-- Laptop/Desktops -->
         <div class="device mobile">
             <div class="head text-center">
                 <img src="{% static 'images/laptop.png' %}" alt="Laptop icon" class="device-icon mb-2">
-                <h3>Laptops</h3>
+                <h3>Laptops/Desktops</h3>
             </div>
             <div class="body">
-                <p>Get help with your laptops</p>
-                <button class="device-btn">See guide</button>
+                <p>Get help with your laptops and desktops</p>
+                <button class="device-btn" onclick="toggleGuide(this)">See guide</button>
+                <div class="device-guide hidden">
+                    <!-- Expanded guide section -->
+                    <section class="guide guide-expanded">
+                        <div class="toggle-group">
+                            <div class="toggle-container">
+                                <p class="toggle-item selected">'How to' guide</p>
+                                <p class="toggle-item">Troubleshooting</p>
+                            </div>
+                        </div>
+                        <div class="help-group guide">
+                            <!-- Connect to Wifi -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Connect to wifi</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li>Check the <strong>router</strong> connection.</li>
+                                        <li>Restart by <strong>Unplugging</strong>.</li>
+                                        <li>Restart your computer.</li>
+                                        <li>Check Wi-Fi Settings.
+                                            Windows: Use the Wi-Fi icon to confirm you're connected.<br>
+                                            Mac: Use the top-right Wi-Fi icon to join your network.
+                                        </li>
+                                        <li><strong> Forget and Reconnect</strong><br>
+                                            Windows: Settings > Network > Manage Known Networks > Forget and
+                                            reconnect.<br>
+                                            Mac: System Preferences > Network > Remove and rejoin Wi-Fi.
+                                        </li>
+                                        <li><strong> Update Wi-Fi Drivers</strong><br>
+                                            Windows: Device Manager > Network Adapters > Update driver.<br>
+                                            Mac: Check for system updates in Apple Menu > Software Update.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Computer won’t turn on -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Computer won’t turn on</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li><strong> Check the Power Source</strong><br>
+                                            Laptop: Make sure your laptop is plugged in, and check if the charging light
+                                            is on. It may take a few minutes to show signs of life if completely
+                                            drained.<br>
+                                            Desktop: Ensure the power cable is connected to both the wall and the power
+                                            supply unit.
+                                        </li>
+                                        <li><strong> Try a Hard Reset</strong><br>
+                                            Laptop: Hold the power button for 10-15 seconds, then press it again.<br>
+                                            Desktop: Unplug from power for 30 seconds, plug back in, then power on.
+                                        </li>
+                                        <li><strong> Check the Display</strong><br>
+                                            Laptop: Adjust brightness or check for screen damage.<br>
+                                            Desktop: Ensure the monitor is correctly connected and powered on.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Computer is running slow -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Computer is running slow</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li><strong> Restart the Computer</strong><br>
+                                            Close all programs and restart to clear temporary files.
+                                        </li>
+                                        <li><strong> Close Unnecessary Programs</strong><br>
+                                            Windows: Ctrl + Shift + Esc to open Task Manager.<br>
+                                            Mac: Cmd + Option + Esc to open Force Quit and close unused apps.
+                                        </li>
+                                        <li><strong> Free Up Disk Space</strong><br>
+                                            Windows: Settings > System > Storage > Disk Cleanup.<br>
+                                            Mac: Finder > About This Mac > Storage. Remove unused files/apps.
+                                        </li>
+                                        <li><strong> Check for Malware</strong><br>
+                                            Windows: Use Windows Defender or a trusted antivirus.<br>
+                                            Mac: Use a Mac-compatible antivirus tool.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="help-group troubleshoot">
+                            <!-- Computer Is Not Responding (Frozen) -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Computer is not responding (Frozen)</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li><strong> Try a Keyboard Shortcut to Close the Program</strong><br>
+                                            Windows: Press Ctrl + Alt + Delete to open Task Manager and select End Task
+                                            for any frozen program.<br>
+                                            Mac: Press Cmd + Option + Esc to open Force Quit, then close the
+                                            unresponsive app.
+                                        </li>
+                                        <li><strong> Restart the Computer</strong><br>
+                                            If the above doesn't work, press and hold the power button for 10-15 seconds
+                                            to force a shutdown, then turn the computer back on.
+                                        </li>
+                                        <li><strong> Check for Software Updates</strong><br>
+                                            Windows: Go to Settings > Update & Security > Windows Update > Check for
+                                            updates.<br>
+                                            Mac: Apple Menu > System Preferences > Software Update.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Keyboard or Mouse Not Working -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Keyboard or Mouse Not Working</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li><strong> Check the Connection</strong><br>
+                                            Laptop: If using an external mouse or keyboard, ensure they are plugged in
+                                            properly.<br>
+                                            Desktop: If using a wireless keyboard/mouse, check the batteries or
+                                            reconnect the USB receiver.
+                                        </li>
+                                        <li><strong> Restart the Computer</strong><br>
+                                            Sometimes restarting can help fix minor issues with input devices.
+                                        </li>
+                                        <li><strong> Check Keyboard and Mouse Drivers</strong><br>
+                                            Windows: Go to Device Manager, right-click on Keyboards or Mice and other
+                                            pointing devices, and select Update Driver.<br>
+                                            Mac: Check System Preferences > Keyboard or Mouse to make sure the settings
+                                            are correct.
+                                        </li>
+                                        <li><strong> Test with Another Device</strong><br>
+                                            Try connecting the keyboard or mouse to another computer to see if the
+                                            problem is with the device itself.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Computer Display is Too Dim (Brightness) -->
+                            <div class="help-item">
+                                <div class="help-head">
+                                    <i class="fa-solid fa-angle-down fa-2xs arrow-icons"></i>
+                                    <p>Computer Display is Too Dim (Brightness)</p>
+                                </div>
+                                <div class="help-body hidden-item">
+                                    <ul>
+                                        <li><strong>Adjust the Brightness Manually</strong><br>
+                                            Laptop: Use the Fn key + brightness keys (sun symbol) to adjust screen
+                                            brightness.<br>
+                                            Desktop: Use physical buttons on the monitor to adjust brightness.
+                                        </li>
+                                        <li><strong> Check Power Settings</strong><br>
+                                            Windows: Go to Settings > System > Display. Adjust brightness and power
+                                            settings to prevent dimming.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
-        <!-- Desktop -->
+        <!-- TV -->
         <div class="device mobile">
             <div class="head text-center">
-                <img src="{% static 'images/desktop.png' %}" alt="Desktop icon" class="device-icon mb-2">
-                <h3>Desktops</h3>
+                <img src="{% static 'images/tv.png' %}" alt="TV icon" class="device-icon mb-2">
+                <h3>TV</h3>
             </div>
             <div class="body">
-                <p>Get help with your desktop computers</p>
+                <p>Get help with your TVs</p>
                 <button class="device-btn">See guide</button>
             </div>
         </div>
@@ -158,12 +328,12 @@
 
 <script src="{% static 'js/script.js' %}"></script>
 <script>
-  function toggleGuide(button) {
-    const guide = button.nextElementSibling;
-    if (guide) {
-      guide.classList.toggle("hidden");
+    function toggleGuide(button) {
+        const guide = button.nextElementSibling;
+        if (guide) {
+            guide.classList.toggle("hidden");
+        }
     }
-  }
 </script>
 
 {% endblock %}
