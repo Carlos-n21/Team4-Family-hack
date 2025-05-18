@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load dict_extras %}
 {% block content %}
 
 <section class="device-guide-page">
@@ -42,8 +43,9 @@
                 </div>
             </div>
         </div>
-        
-        <!-- MOBILE GUIDES -->
+
+        {% comment %} --- Guide Content Sections --- {% endcomment %}
+
         {% if device_type == 'mobile' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
@@ -51,10 +53,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-guide-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-wifi"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
                                 <h3>Connect to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wifi-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_wifi-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_wifi-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="wifi-guide-mobile">
@@ -70,10 +77,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#brightness-guide-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-sun"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-sun"></i></div>
                                 <h3>Change Screen Brightness</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="brightness-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_brightness-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_brightness-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="brightness-guide-mobile">
@@ -89,10 +101,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#alarm-guide-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-bell"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-bell"></i></div>
                                 <h3>Set an Alarm</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="alarm-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_alarm-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_alarm-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="alarm-guide-mobile">
@@ -112,10 +129,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#sound-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-volume-xmark"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-volume-xmark"></i></div>
                                 <h3>Sound Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="sound-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_sound-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_sound-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="sound-mobile">
@@ -131,10 +153,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#bluetooth-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-brands fa-bluetooth"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-brands fa-bluetooth"></i></div>
                                 <h3>Bluetooth Not Connecting</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="bluetooth-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_bluetooth-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_bluetooth-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="bluetooth-mobile">
@@ -150,10 +177,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#app-mobile">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-mobile-screen"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-mobile-screen"></i></div>
                                 <h3>App Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="app-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_app-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_app-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="app-mobile">
@@ -169,18 +201,22 @@
                 </div>
             </div>
         
-        <!-- LAPTOP/DESKTOP GUIDES -->
         {% elif device_type == 'laptop' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
-                    <!-- Example: How to Install a Program -->
+                    <!-- Install a Program -->
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#install-program">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-download"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-download"></i></div>
                                 <h3>How to Install a Program</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="install-program"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_install-program' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_install-program' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="install-program">
@@ -193,14 +229,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- How to use Facebook -->
+                    <!-- Use Facebook -->
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#facebook-guide">
-                                <div class="icon-container">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-brands fa-facebook"></i></div>
                                 <h3>How to Use Facebook</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="facebook-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_facebook-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_facebook-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="facebook-guide">
@@ -213,14 +254,19 @@
                             </div>
                         </div>
                     </div>
-                    <!-- How to Search Online -->
+                    <!-- Search Online -->
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#google-guide">
-                                <div class="icon-container">
-                                    <i class="fa-brands fa-google"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-brands fa-google"></i></div>
                                 <h3>How to Search Online</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="google-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_google-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_google-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="google-guide">
@@ -240,10 +286,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#not-turning-on">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-power-off"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-power-off"></i></div>
                                 <h3>Laptop/Desktop Won’t Turn On</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="not-turning-on"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_not-turning-on' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_not-turning-on' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="not-turning-on">
@@ -259,10 +310,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#slow-computer">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-gauge-simple"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-gauge-simple"></i></div>
                                 <h3>Computer is Running Slow</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="slow-computer"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_slow-computer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_slow-computer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="slow-computer">
@@ -279,10 +335,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-trouble">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-wifi"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
                                 <h3>Won’t Connect to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wifi-trouble"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_wifi-trouble' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_wifi-trouble' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="wifi-trouble">
@@ -298,10 +359,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#screen-flicker">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-desktop"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-desktop"></i></div>
                                 <h3>Screen Flickering or Glitching</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="screen-flicker"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_screen-flicker' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_screen-flicker' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="screen-flicker">
@@ -317,10 +383,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#frozen-pc">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-triangle-exclamation"></i></div>
                                 <h3>Computer is Not Responding (Frozen)</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="frozen-pc"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_frozen-pc' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_frozen-pc' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="frozen-pc">
@@ -336,10 +407,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#noisy-computer">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-volume-high"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-volume-high"></i></div>
                                 <h3>Computer Is Making Strange Noises</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="noisy-computer"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_noisy-computer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_noisy-computer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="noisy-computer">
@@ -355,10 +431,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#keyboard-mouse">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-keyboard"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-keyboard"></i></div>
                                 <h3>Keyboard or Mouse Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="keyboard-mouse"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_keyboard-mouse' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_keyboard-mouse' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="keyboard-mouse">
@@ -374,10 +455,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#dim-display">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-sun"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-sun"></i></div>
                                 <h3>Display Is Too Dim</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="dim-display"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_dim-display' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_dim-display' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="dim-display">
@@ -391,7 +477,6 @@
                 </div>
             </div>
         
-        <!-- TV GUIDES -->
         {% elif device_type == 'tv' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
@@ -399,10 +484,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#setup-tv">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-tv"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-tv"></i></div>
                                 <h3>Set Up a New TV</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="setup-tv"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_setup-tv' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_setup-tv' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="setup-tv">
@@ -418,10 +508,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#tv-wifi">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-wifi"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
                                 <h3>Connect TV to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="tv-wifi"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_tv-wifi' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_tv-wifi' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="tv-wifi">
@@ -441,10 +536,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#no-signal">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-plug"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-plug"></i></div>
                                 <h3>No Signal Message</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="no-signal"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_no-signal' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_no-signal' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="no-signal">
@@ -460,10 +560,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#tv-wont-on">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-power-off"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-power-off"></i></div>
                                 <h3>TV Won’t Turn On</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="tv-wont-on"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_tv-wont-on' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_tv-wont-on' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="tv-wont-on">
@@ -478,7 +583,6 @@
                 </div>
             </div>
         
-        <!-- ROUTER GUIDES -->
         {% elif device_type == 'router' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
@@ -486,10 +590,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#setup-router">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-router"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-router"></i></div>
                                 <h3>Set Up a New Router</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="setup-router"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_setup-router' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_setup-router' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="setup-router">
@@ -506,10 +615,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#change-password">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-key"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-key"></i></div>
                                 <h3>Change Wi-Fi Password</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="change-password"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_change-password' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_change-password' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="change-password">
@@ -529,10 +643,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#no-internet">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-globe"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-globe"></i></div>
                                 <h3>No Internet Connection</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="no-internet"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_no-internet' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_no-internet' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="no-internet">
@@ -548,10 +667,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#forgot-password">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-key"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-key"></i></div>
                                 <h3>Forgotten Wi-Fi Password</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="forgot-password"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_forgot-password' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_forgot-password' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="forgot-password">
@@ -565,7 +689,6 @@
                 </div>
             </div>
         
-        <!-- SMART METER GUIDES -->
         {% elif device_type == 'smartmeter' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
@@ -573,10 +696,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#read-meter">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-bolt"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-bolt"></i></div>
                                 <h3>Read Your Smart Meter</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="read-meter"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_read-meter' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_read-meter' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="read-meter">
@@ -592,10 +720,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#usage-guide">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-chart-line"></i></div>
                                 <h3>Understand Your Usage</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="usage-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_usage-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_usage-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="usage-guide">
@@ -614,10 +747,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#meter-not-working">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-exclamation-triangle"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-exclamation-triangle"></i></div>
                                 <h3>Meter Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="meter-not-working"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_meter-not-working' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_meter-not-working' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="meter-not-working">
@@ -633,10 +771,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wrong-reading">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-question"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-question"></i></div>
                                 <h3>Reading Seems Wrong</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wrong-reading"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_wrong-reading' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_wrong-reading' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="wrong-reading">
@@ -650,7 +793,6 @@
                 </div>
             </div>
         
-        <!-- PRINTER GUIDES -->
         {% elif device_type == 'printer' %}
             <div class="guide-section how-to-section" id="how-to">
                 <div class="row">
@@ -658,10 +800,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#printer-wifi">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-wifi"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
                                 <h3>Connect Printer to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="printer-wifi"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_printer-wifi' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_printer-wifi' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="printer-wifi">
@@ -676,10 +823,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#ink-printer">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-droplet"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-droplet"></i></div>
                                 <h3>Install Ink Cartridges</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="ink-printer"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_ink-printer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_ink-printer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="ink-printer">
@@ -699,10 +851,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#not-printing">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-triangle-exclamation"></i></div>
                                 <h3>Printer Won’t Print</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="not-printing"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_not-printing' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_not-printing' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="not-printing">
@@ -718,10 +875,15 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#paper-jam">
-                                <div class="icon-container">
-                                    <i class="fa-solid fa-file-lines"></i>
-                                </div>
+                                <div class="icon-container"><i class="fa-solid fa-file-lines"></i></div>
                                 <h3>Fix a Paper Jam</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="paper-jam"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_paper-jam' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_paper-jam' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
                             </div>
                             <div class="guide-card-body collapse" id="paper-jam">
@@ -757,30 +919,81 @@
 {% block extra_js %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Guide Toggle JS
         const toggleButtons = document.querySelectorAll('.toggle-btn');
+        const indicator = document.querySelector('.toggle-indicator');
+        
         toggleButtons.forEach(button => {
             button.addEventListener('click', function() {
+                // Toggle active class
                 toggleButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-                const targetId = this.getAttribute('data-target');
+                
+                // Show/hide sections
+                const targetId = this.dataset.target;
                 document.querySelectorAll('.guide-section').forEach(section => {
-                    section.classList.add('d-none');
+                    section.classList.toggle('d-none', section.id !== targetId);
                 });
-                document.getElementById(targetId).classList.remove('d-none');
-                // Move the toggle indicator
-                const indicator = document.querySelector('.toggle-indicator');
-                if (targetId === 'how-to') {
-                    indicator.style.transform = 'translateX(0)';
-                } else {
-                    indicator.style.transform = 'translateX(100%)';
+                
+                // Move indicator
+                if (indicator) {
+                    indicator.style.transform = targetId === 'how-to' ? 
+                        'translateX(0)' : 'translateX(100%)';
                 }
             });
         });
-        const guideHeaders = document.querySelectorAll('.guide-card-header');
-        guideHeaders.forEach(header => {
+
+        // Bookmark functionality
+        document.querySelectorAll('.bookmark-btn').forEach(btn => {
+            btn.addEventListener('click', async function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                {% if not user.is_authenticated %}
+                    window.location.href = "{% url 'login' %}?next={{ request.path }}";
+                    return;
+                {% endif %}
+
+                const guideKey = this.dataset.guideKey;
+                const guideType = this.dataset.guideType;
+                const icon = this.querySelector('i');
+                
+                try {
+                    const response = await fetch("{% url 'toggle_bookmark' %}", {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': "{{ csrf_token }}",
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            device_type: "{{ device_type }}",
+                            guide_type: guideType,
+                            guide_key: guideKey
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (data.status === 'added' || data.status === 'bookmarked') {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        btn.title = 'Remove bookmark';
+                    } else if (data.status === 'removed') {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        btn.title = 'Save to bookmarks';
+                    }
+                } catch (error) {
+                    console.error('Bookmark error:', error);
+                }
+            });
+        });
+
+        // Collapse animation
+        document.querySelectorAll('.guide-card-header').forEach(header => {
             header.addEventListener('click', function() {
                 const icon = this.querySelector('.toggle-icon');
-                icon.classList.toggle('rotated');
+                if (icon) icon.classList.toggle('rotated');
             });
         });
     });

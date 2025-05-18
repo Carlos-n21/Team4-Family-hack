@@ -1,15 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from userprofile.models import GuideBookmark
 
 def home(request):
-    return render(request, "home.html") 
+    return render(request, "home.html")
 
 def technicalissues(request):
     return render(request, "technicalissues.html")
 
+@login_required
 def device_guide(request, device_type):
     """
-    View to handle device-specific guides
-    
+    View to handle device-specific guides, with bookmark support
     Args:
         device_type: The type of device (mobile, laptop, tv, etc.)
     """
@@ -47,9 +49,22 @@ def device_guide(request, device_type):
         }
     }
     
+    if request.user.is_authenticated:
+        user_bookmarks = GuideBookmark.objects.filter(
+            user=request.user, 
+            device_type=device_type
+        )
+        # Create dictionary with composite keys
+        bookmarks = {
+            f"{bm.guide_type}_{bm.guide_key}": True 
+            for bm in user_bookmarks
+        }
+    else:
+        bookmarks = {}
+
     context = {
         'device_type': device_type,
-        'device_info': device_info.get(device_type, {})
+        'device_info': device_info.get(device_type, {}),
+        'bookmarks': bookmarks,
     }
-    
     return render(request, "device_guide.html", context)

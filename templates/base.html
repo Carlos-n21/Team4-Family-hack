@@ -74,7 +74,7 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">⭐ Bookmarks</a>
+              <a class="dropdown-item {% if request.resolver_match.url_name == 'bookmarks' %}active{% endif %}" href="{% url 'bookmarks' %}">⭐ Bookmarks</a>
             </li>
             <li>
               <a class="dropdown-item" href="{% url 'logout' %}">🚪 Sign Out</a>
