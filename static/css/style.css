@@ -172,6 +172,9 @@ h4 {
   padding: 10px; /* Add space inside the image container */
 }
 
+.hidden {
+  display: none;
+}
 
 .device-categories h2 {
   text-align: center;
