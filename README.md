@@ -311,91 +311,69 @@ To begin this project from scratch, you must first create a new GitHub repositor
   - Navigate to the above CI Full Template.<br>
   - Click 'Use this template' -> 'Create a new repository'.<br>
   - Choose a new repository name and click 'Create repository from template'.<br>
-  - In your new repository space, click the purple CodeAnywhere (if this is your IDE of choice) button to generate a new workspace.<br>
+  - In your new repository space, click the purple CodeAnywhere (if this is your IDE of choice) button to generate a new workspace, or green one if you are using gitpod.<br>
 
-[Back to top](#top)
+### Within the codespace
 
-### Django Project Setup<br>
-Install Django and supporting libraries:<br>
-  - pip3 install 'django<4' gunicorn<br>
-  - pip3 install dj_database_url psycopg2<br>
-  - pip3 install dj3-cloudinary-storage<br>
+#### Procfile
 
-Once you have installed any relevant dependencies or libraries, such as the ones listed above, it is important to create a requirements.txt file and add all installed libraries to it with the pip3 freeze --local > requirements.txt command in the terminal.
++ Install the gunicorn python package and freeze to requirements.txt.
 
-Create a new Django project in the terminal django-admin startproject ems .
++ Create a file called 'Procfile' and add the following command ``` web: gunicorn familytech.wsgi ```.
 
-Create a new app eg. python3 mangage.py startapp events
+#### Deployment with static files
 
-Add this to list of INSTALLED_APPS in settings.py - 'booking',
++ The whitenoise python package was installed and added to requirements.txt
 
-Create a superuser for the project to allow Admin access and enter credentials: python3 manage.py createsuperuser
++ In settings.py add whitenoise middleware to middleware and add a static root path to 'staticfiles'.
+  - ```'whitenoise.middleware.WhiteNoiseMiddleware',```
 
-Migrate the changes with commands: python3 manage.py migrate
++ Enter the command ``` python3 manage.py collectstatic ``` into the terminal.
 
-An env.py file must be created to store all protected data such as the 
-DATABASE_URL and SECRET_KEY. These may be called upon in your project's settings.py file along with your Database configurations. The env.py file must be added to your gitignore file so that your important, protected information is not pushed to public viewing on GitHub. For adding to env.py:
++ Create the file 'runtime.txt' and add a supported runtime from [supported runtimes](https://devcenter.heroku.com/articles/python-support#specifying-a-python-version).
++  in Settings.py make sure that that Allowed Hosts and CSRF_TRUSTED_ORIGINS are set so they include the Heroku app
+  ````
+      ALLOWED_HOSTS = [
+        'localhost',
+        '127.0.0.1',
+        '.gitpod.io',
+        **'.herokuapp.com'**
+    ]
+    
+    CSRF_TRUSTED_ORIGINS = [
+        "https://*.gitpod.io",  
+        **"https://*.herokuapp.com"**  
+    ]
 
-  - import os
-  - os.environ["DATABASE_URL"]="<copiedURLfrom postgresql://neondb_owner>"
-  - os.environ["SECRET_KEY"]="my_super^secret@key"
+  ````
++ #### Debug
+    + Set debug to False on settings.py
 
-For adding to settings.py:
+#### Committing changes
 
-  - import os
-  - import dj_database_url
-  - if os.path.exists("env.py"):
-  - import env
-  - SECRET_KEY = os.environ.get('SECRET_KEY') (actual key hidden within env.py)
++ git add. , commit and push the changes with and appropriate commit message such as "prepare project for deployment"
 
-Replace DATABASES with:
+### Heroku Deployment
 
-DATABASES = {<br>
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))<br>
-  }
+This project was deployed using Heroku.
 
-Set up the templates directory in settings.py:
-  - Under BASE_DIR enter TEMPLATES_DIR = os.path.join(BASE_DIR, ‘templates’)
-  - Update TEMPLATES = 'DIRS': [TEMPLATES_DIR] with:<br>
-  os.path.join(BASE_DIR, 'templates'),<br>
-  os.path.join(BASE_DIR, 'templates', 'allauth')<br>
-  - Create the media, static and templates directories in top level of project file in IDE workspace.<br>
-  
-A Procfile must be created within the project repo for Heroku deployment with the following placed within it: web: gunicorn ems.wsgi
 
-Make the necessary migrations again.
+#### On Heroku
 
-[Back to top](#top)
++ Log into Heroku
++ Select 'Create New App' from your dashboard, choose an app name and select the appropriate region.
 
-### Heroku deployment
-To start the deployment process , please follow the below steps:
++ Then In 'Config Vars' enter KEY:VALUE pairs for the app to run successfully. The KEY:VALUE pairs that you will need are your:<br>
 
-  - Log in to Heroku or create an account if you are a new user.
+  - OPENAI_API_KEY:<"your openai api key">
+  - SECRET_KEY:<"your secret key">
++ Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
++ At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finished loading select 'open app'.
 
-  - Once logged in, in the Heroku Dashboard, navigate to the 'New' button in the top, right corner, and select 'Create New App'.
-
-  - Enter an app name and choose your region. Click 'Create App'.
-
-  - In the Deploy tab, click on the 'Settings', reach the 'Config Vars' section and click on 'Reveal Config Vars'. Here you will enter KEY:VALUE pairs for the app to run successfully. The KEY:VALUE pairs that you will need are your:<br>
-CLOUDINARY_URL: cloudinary://....<br>
-DATABASE_URL:postgres://...<br>
-DISABLE_COLLECTSTATIC of value '1' (N.B Remove this Config Var before deployment),<br>
-PORT:8000<br>
-SECRET_KEY and value<br>
-
-  - Add the Heroku host name into ALLOWED_HOSTS in your projects settings.py file ->  ['800-nielmc-django-project-lxqprmm3qz.us2.codeanyapp.com', '.herokuapp.com', 'localhost', '127.0.0.1'].
-
-  - Once you are sure that you have set up the required files including your requirements.txt and Procfile, you have ensured that DEBUG=False, save your project, add the files, commit for initial deployment and push the data to GitHub.
-
-  - Go to the 'Deploy' tab and choose GitHub as the Deployment method.
-
-  - Search for the repository name, select the branch that you would like to build from, and connect it via the 'Connect' button.
-
-  - Choose from 'Automatic' or 'Manual' deployment options, I chose the 'Manual' deployment method. Click 'Deploy Branch'.
-
-  - Once the waiting period for the app to build has finished, click the 'View' link to bring you to your newly deployed site. If you receive any errors, Heroku will display a reason in the app build log for you to investigate. DISABLE_COLLECTSTATIC may be removed from the Config Vars once you have saved and pushed an image within your project, as can PORT:8000.
-
-[Back to top](#top)
+#### Extra notes on Deployment
+- If you are wanting to deploy the projet without any static files, you will need to have the KEY:VALUE pair <strong>DISABLE_COLLECTSTATIC: 1</strong> in your Heroku Config Vars which should be removed once your project has static files.
+- There is the option to select 'Resources' on the navigation menu and enable Eco Dynos on Heroku.
+---
 
 ### Clone project
 A local clone of this repository can be made on GitHub. Please follow the below steps:
