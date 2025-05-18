@@ -6,6 +6,8 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
 
+    console.log('Test display')
+
     // Add eventListeners to .rod elements
     addHelpEventListeners();
 
