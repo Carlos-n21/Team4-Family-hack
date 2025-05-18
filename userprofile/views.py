@@ -3,12 +3,27 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.views.decorators.http import require_GET
-from .forms import SignUpForm
+from .forms import SignUpForm, ProfileImageForm
+from .models import Profile
 
 @login_required
 def profile_view(request):
+    # Create profile if it doesn't exist
+    if not hasattr(request.user, 'profile'):
+        Profile.objects.create(user=request.user)
+    
+    if request.method == 'POST':
+        form = ProfileImageForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated!')
+            return redirect('profile')
+    else:
+        form = ProfileImageForm(instance=request.user.profile)
+    
     return render(request, 'userprofile/profile.html', {
-        'user': request.user
+        'user': request.user,
+        'form': form
     })
 
 def signup_view(request):
