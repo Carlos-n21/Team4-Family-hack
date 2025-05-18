@@ -1,6 +1,6 @@
 # FamilyTech  <a id="top"/>
 
-<img src=""> 
+<img src="docs/amiresponsive.png"> 
 
 ## Introduction
 
@@ -248,19 +248,15 @@ Persona 3: Freelance IT Support Technician
 ### Wireframes
 Initial wireframes - desktop view:
 
-<img src="">
-<img src="">
+<img src="docs/mobile-section.png">
+<img src="docs/profile.png">
+<img src="docs/task.png">
+<img src="docs/homepage.png">
 
 Initial wireframes - mobile view:
 
-<img src="">
-<img src="">
+<img src="docs/mobile-view.png">
 
-The initial concept was based on:
-
-  - [doc)
-
-Afns.<br>
 
 [Back to top](#top)
 
@@ -357,7 +353,6 @@ To begin this project from scratch, you must first create a new GitHub repositor
 
 This project was deployed using Heroku.
 
-
 #### On Heroku
 
 + Log into Heroku
@@ -425,7 +420,9 @@ Va
 ### HTML Validation
 Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input) to test the HTML on all webpages and updated as needed. No errors found after fixing as can be seen on the examples bellow.
 <details>
-  <img src="">
+  <img src="docs/html-validator-homepage">
+  <img src="docs/html-technical-issues.png">
+  <img src="docs/html-caht-bot.png">
 </details>
 
 [Back to top](#top)
@@ -434,7 +431,7 @@ Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input
 
 Used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) to test CSS style and no errors found.
 
-  <img src="">
+  <img src="docs/css-validation.png">
 
 ### Lighthouse Audit
 
