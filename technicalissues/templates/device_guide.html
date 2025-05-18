@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="device-guide-page">
+    <div class="container py-5">
+        <!-- Back navigation -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <a href="{% url 'technicalissues' %}" class="text-decoration-none back-link">
+                    <i class="fa-solid fa-arrow-left me-2"></i> Back to devices
+                </a>
+            </div>
+        </div>
+        
+        <!-- Device header -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="device-header bg-white p-4 rounded-4 shadow-sm d-flex align-items-center">
+                    <img src="{% static 'images/'|add:device_info.icon %}" alt="{{ device_info.name }} icon" class="device-icon me-4">
+                    <div>
+                        <h1 class="mb-1">{{ device_info.name }}</h1>
+                        <p class="text-muted mb-0">{{ device_info.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guide Toggle -->
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <div class="toggle-container rounded-pill shadow-sm">
+                    <div class="toggle-switch" id="guide-toggle">
+                        <button class="toggle-btn active" data-target="how-to">
+                            <i class="fa-solid fa-book-open me-2"></i> 'How to' guides
+                        </button>
+                        <button class="toggle-btn" data-target="troubleshoot">
+                            <i class="fa-solid fa-wrench me-2"></i> Troubleshooting
+                        </button>
+                        <span class="toggle-indicator"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guide content for mobile devices -->
+        {% if device_type == 'mobile' %}
+            <!-- How-to guides section -->
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-guide">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
+                                <h3>Connect to Wi-Fi</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="wifi-guide">
+                                <ol class="steps-list">
+                                    <li>Open the <strong>Settings</strong> app.</li>
+                                    <li>Tap <strong>Wi-Fi</strong>.</li>
+                                    <li>Make sure the Wi-Fi is turned on.</li>
+                                    <li>You should see a list of available networks. Tap the one you want to join.</li>
+                                    <li>Enter the password if asked, and then hit <strong>Connect</strong>.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#brightness-guide">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-sun"></i>
+                                </div>
+                                <h3>Change screen brightness</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="brightness-guide">
+                                <ol class="steps-list">
+                                    <li>Swipe down from the top of your screen.</li>
+                                    <li>You should see a little brightness slider - move it left or right to make your screen darker or brighter.</li>
+                                    <li>Or, you can go to <strong>Settings</strong> > <strong>Display</strong> and adjust it there.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#alarm-guide">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-bell"></i>
+                                </div>
+                                <h3>Set an alarm</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="alarm-guide">
+                                <ol class="steps-list">
+                                    <li>Open the <strong>Clock</strong> app.</li>
+                                    <li>Tap the <strong>Alarm</strong> tab.</li>
+                                    <li>Tap the <strong>+</strong> icon to add a new alarm.</li>
+                                    <li>Set the time and any other preferences, then tap <strong>Save</strong>.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Troubleshooting section -->
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#sound-issue">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-volume-xmark"></i>
+                                </div>
+                                <h3>Sound not working</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="sound-issue">
+                                <ol class="steps-list">
+                                    <li>Check the volume settings to ensure it's turned up.</li>
+                                    <li>Test with a different app to rule out the possibility of app-related issues.</li>
+                                    <li>If you are using headphones, make sure they are plugged in properly.</li>
+                                    <li>If the issue persists, try restarting your phone or resetting sound settings.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#bluetooth-issue">
+                                <div class="icon-container">
+                                    <i class="fa-brands fa-bluetooth"></i>
+                                </div>
+                                <h3>Bluetooth not connecting</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="bluetooth-issue">
+                                <ol class="steps-list">
+                                    <li>Make sure Bluetooth is turned on in your <strong>Settings</strong>.</li>
+                                    <li>Ensure the device you are connecting to is also in a pairing mode or discoverable.</li>
+                                    <li>Try 'forgetting' the device in your Bluetooth settings and reconnecting.</li>
+                                    <li>If the issue persists, restart both devices and try again.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#app-issue">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-mobile-screen"></i>
+                                </div>
+                                <h3>Mobile App not working properly</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="app-issue">
+                                <ol class="steps-list">
+                                    <li>First, try closing and restarting the app.</li>
+                                    <li>If that doesn't help, check for updates for the app in the app store.</li>
+                                    <li>If it is still not working, try restarting your phone.</li>
+                                    <li>As a last resort, clear the app's cache or reinstall it.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'laptop' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-guide">
+                                <div class="icon-container">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
+                                <h3>Connect to Wi-Fi</h3>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="wifi-guide">
+                                <ol class="steps-list">
+                                    <li>Check the <strong>router</strong> connection.</li>
+                                    <li>Restart by <strong>Unplugging</strong>.</li>
+                                    <li>Restart your computer.</li>
+                                    <li>Check Wi-Fi Settings.<br>
+                                        Windows: Use the Wi-Fi icon to confirm you're connected.<br>
+                                        Mac: Use the top-right Wi-Fi icon to join your network.
+                                    </li>
+                                    <li><strong>Forget and Reconnect</strong><br>
+                                        Windows: Settings > Network > Manage Known Networks > Forget and reconnect.<br>
+                                        Mac: System Preferences > Network > Remove and rejoin Wi-Fi.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+            </div>
+        
+        {% else %}
+
+            <div class="row">
+                <div class="col-12 text-center py-5">
+                    <h2>We're still working on guides for this device.</h2>
+                    <p class="mb-4">Please check back soon or try another device category.</p>
+                    <a href="{% url 'technicalissues' %}" class="btn btn-primary">
+                        View all devices
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('data-target');
+                document.querySelectorAll('.guide-section').forEach(section => {
+                    section.classList.add('d-none');
+                });
+                document.getElementById(targetId).classList.remove('d-none');
+                
+                // Move the toggle indicator
+                const indicator = document.querySelector('.toggle-indicator');
+                if (targetId === 'how-to') {
+                    indicator.style.transform = 'translateX(0)';
+                } else {
+                    indicator.style.transform = 'translateX(100%)';
+                }
+            });
+        });
+        
+        const guideHeaders = document.querySelectorAll('.guide-card-header');
+        
+        guideHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const icon = this.querySelector('.toggle-icon');
+                icon.classList.toggle('rotated');
+                
+            });
+        });
+    });
+</script>
+{% endblock %}
