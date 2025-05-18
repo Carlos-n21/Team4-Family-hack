@@ -407,7 +407,7 @@ h4 {
   width: 32px;
   color: #fff;
   align-self: flex-end;
-  background: #8fcff0;
+  background: #4299e1;
   text-align: center;
   line-height: 32px;
   border-radius: 4px;
@@ -426,7 +426,7 @@ h4 {
   font-size: 0.95rem;
   padding: 12px 16px;
   border-radius: 10px 10px 0 10px;
-  background: #8fcff0;
+  background: #4299e1;
 }
 
 .chatbot .chat p.error {
