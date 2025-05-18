@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load userprofile_extras %}
+
+{% block content %}
+<div class="container py-5">
+    <h2>Your Bookmarked Guides</h2>
+    {% if bookmarks %}
+        <div class="row">
+            {% for bm in bookmarks %}
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {{ bm.guide_key|replace:"-, "|title }}
+                            </h5>
+                            <p class="card-text">
+                                <strong>Device:</strong> {{ bm.device_type|title }}<br>
+                                <strong>Type:</strong> {{ bm.guide_type|title }}
+                            </p>
+                            <a href="{% url 'device_guide' device_type=bm.device_type %}#{{ bm.guide_key }}" class="btn btn-primary">
+                                View Guide
+                            </a>
+                            <form action="{% url 'remove_bookmark' bm.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Remove Bookmark</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>You haven't saved any bookmarks yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

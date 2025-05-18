@@ -685,6 +685,18 @@ h4 {
   margin-bottom: 0;
 }
 
+.bookmark-star {
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 1.25rem;
+}
+.bookmark-star i.fa-star {
+  transition: color 0.2s;
+}
+.bookmark-star i.fa-solid.text-warning {
+  color: #ffc107 !important;
+}
+
 /* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
