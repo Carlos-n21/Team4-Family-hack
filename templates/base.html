@@ -28,54 +28,67 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-        <img src="{% static 'images/logo.png' %}" alt="Family Tech Logo" width="50" height="50" class="me-2">
-        Family Tech Help
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto align-items-center">
-          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
-          <a class="nav-link {% if request.resolver_match.url_name == 'technicalissues' %}active{% endif %}" href="{% url 'technicalissues' %}">Technical Issues</a>
-          <a class="nav-link {% if request.resolver_match.url_name == 'chatbot' %}active{% endif %}" href="{% url 'chatbot' %}">Chatbot</a>
-          {% if user.is_authenticated %}
-          <div class="nav-item dropdown">
-            <button type="button" class="btn profile__btn" id="profileDropdown" data-bs-toggle="dropdown"
-              aria-expanded="false" style="background:none; border:none; padding: 0;">
-              <img src="{% static 'images/no-images.png' %}" alt="Avatar" class="rounded-circle" width="40" height="40">
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="profileDropdown" style="min-width: 220px;">
-              <li class="d-flex align-items-center mb-2">
-                <img class="profile__avatar me-2" src="{% static 'images/no-images.png' %}" alt="Avatar" width="48" height="48">
-                <div>
-                  <strong>{{ user.get_full_name|default:user.username }}</strong><br>
-                  <small class="text-muted">{{ user.email }}</small>
-                </div>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}">👤 Account</a></li>
-                <li>
-                    <!-- Bookmarked Issues placeholder link -->
-                    <a class="dropdown-item" href="#">
-                      ⭐ Bookmarks
-                    </a>
-                  </li>
-              <li><a class="dropdown-item" href="{% url 'logout' %}">🚪 Sign Out</a></li>
-            </ul>
-          </div>
-          {% else %}
-          <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
-          {% endif %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img src="{% static 'images/logo.png' %}" alt="Family Tech Logo" width="50" height="50" class="me-2">
+      Family Tech Help
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto align-items-center">
+        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'technicalissues' %}active{% endif %}" href="{% url 'technicalissues' %}">Technical Issues</a>
+        <a class="nav-link {% if request.resolver_match.url_name == 'chatbot' %}active{% endif %}" href="{% url 'chatbot' %}">Chatbot</a>
+        {% if user.is_authenticated %}
+        <div class="nav-item dropdown">
+          <!-- Profile button with fallback logic -->
+          <button type="button" class="btn profile__btn" id="profileDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false" style="background:none; border:none; padding: 0;">
+            {% if user.profile.image and user.profile.image.url != '/media/profile_pics/no-images.png' %}
+              <img src="{{ user.profile.image.url }}" alt="Profile Image" class="rounded-circle" width="40" height="40">
+            {% else %}
+              <img src="{% static 'images/no-images.png' %}" alt="Default Profile" class="rounded-circle" width="40" height="40">
+            {% endif %}
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-3" aria-labelledby="profileDropdown" style="min-width: 220px;">
+            <li class="d-flex align-items-center mb-2">
+              {% if user.profile.image and user.profile.image.url != '/media/profile_pics/no-images.png' %}
+                <img class="profile__avatar me-2" src="{{ user.profile.image.url }}" alt="Profile Image" width="48" height="48">
+              {% else %}
+                <img class="profile__avatar me-2" src="{% static 'images/no-images.png' %}" alt="Default Profile" width="48" height="48">
+              {% endif %}
+              <div>
+                <strong>{{ user.get_full_name|default:user.username }}</strong><br>
+                <small class="text-muted">{{ user.email }}</small>
+              </div>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item {% if request.resolver_match.url_name == 'profile' %}active{% endif %}" href="{% url 'profile' %}">
+                👤 Account
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item {% if request.resolver_match.url_name == 'bookmarks' %}active{% endif %}" href="{% url 'bookmarks' %}">⭐ Bookmarks</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'logout' %}">🚪 Sign Out</a>
+            </li>
+          </ul>
         </div>
+        {% else %}
+        <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
+        {% endif %}
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!--Main Content-->
   {% block content %}
