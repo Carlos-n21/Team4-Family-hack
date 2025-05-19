@@ -2,35 +2,59 @@
 {% load userprofile_extras %}
 
 {% block content %}
-<div class="container py-5">
-    <h2>Your Bookmarked Guides</h2>
-    {% if bookmarks %}
-        <div class="row">
-            {% for bm in bookmarks %}
-                <div class="col-md-6 mb-4">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{ bm.guide_key|replace:"-, "|title }}
-                            </h5>
-                            <p class="card-text">
-                                <strong>Device:</strong> {{ bm.device_type|title }}<br>
-                                <strong>Type:</strong> {{ bm.guide_type|title }}
-                            </p>
-                            <a href="{% url 'device_guide' device_type=bm.device_type %}#{{ bm.guide_key }}" class="btn btn-primary">
-                                View Guide
-                            </a>
-                            <form action="{% url 'remove_bookmark' bm.id %}" method="post" class="d-inline">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-danger btn-sm">Remove Bookmark</button>
-                            </form>
-                        </div>
-                    </div>
+<div class="container profile-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="profile-card card mb-4">
+                <div class="profile-card-header">
+                    <h2 class="mb-0">Your Bookmarked Guides</h2>
                 </div>
-            {% endfor %}
+                <div class="card-body p-4">
+                    {% if bookmarks %}
+                        <div class="row g-4">
+                            {% for bm in bookmarks %}
+                                <div class="col-md-6">
+                                    <div class="card h-100 shadow-sm border-0" style="border-radius: 0.75rem;">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <h5 class="card-title text-primary fw-bold mb-0">
+                                                    {{ bm.guide_key|replace:"-, "|title }}
+                                                </h5>
+                                                <form action="{% url 'remove_bookmark' bm.id %}" method="post" class="d-inline">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill" title="Remove Bookmark">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class="mb-3">
+                                                <span class="badge bg-primary-light text-primary me-2">{{ bm.device_type|title }}</span>
+                                                <span class="badge bg-primary-light text-primary">{{ bm.guide_type|title }}</span>
+                                            </div>
+                                            <a href="{% url 'device_guide' device_type=bm.device_type %}#{{ bm.guide_key }}" 
+                                               class="custom-blue-btn btn btn-sm w-100 rounded-pill">
+                                                View Guide
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <div class="mb-4">
+                                <i class="bi bi-bookmark text-muted" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4 class="text-muted">No Bookmarks Yet</h4>
+                            <p class="text-muted">You haven't saved any guides to your bookmarks.</p>
+                            <a href="{% url 'home' %}" class="custom-blue-btn btn btn-md rounded-pill">
+                                Explore Guides
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    {% else %}
-        <p>You haven't saved any bookmarks yet.</p>
-    {% endif %}
+    </div>
 </div>
 {% endblock %}
