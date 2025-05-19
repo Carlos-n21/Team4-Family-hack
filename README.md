@@ -94,17 +94,6 @@ Some of the features available
 
 Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 
-<img src="" style="width: 90%; height: 60%;"><br>
-
-| Colour      | WCAG Ratio (against #121212) | WCAG Contrast          |
-|-------------|-------------------------------|-------------------------|
-| Purple      | Pass (7.1:1)                 | ✅ AAA                 |
-| Indigo      | Pass (8.23:1)                | ✅✅ AAA               |
-| Roseberry   | Pass (6.71:1)                | ✅✅ AAA               |
-| Bright Blue | Pass (6.95:1)                | ✅✅ AAA               |
-
-## Contrast Check
-<img src=""><br>
 
 ## Typography
 Fonts used for this website were:
@@ -270,7 +259,11 @@ Image used on the homepage:
 ## Features
 Some of the features that can be seen on the website are:
 
-An
+- [Homepage](https://familytech-3d93c509ed81.herokuapp.com/) with information about the site
+- [Technical Issues](https://familytech-3d93c509ed81.herokuapp.com/technicalissues/) page with different devices that users might have with guides for common issues and troubleshooting
+- [Chatbot](https://familytech-3d93c509ed81.herokuapp.com/chatbot/) for issues not present on the site
+- [Booksmarks](https://familytech-3d93c509ed81.herokuapp.com/profile/bookmarks/) below the profile, after the user logs in, where the user can see is saved guides
+- Ability to save guides as bookmarks, by clicking on the [star icon](https://familytech-3d93c509ed81.herokuapp.com/technicalissues/mobile/), after being logged in.
 
 [Back to top](#top)
 
@@ -467,7 +460,6 @@ Website manually tested on the following devices/browsers for responsiveness:
 - Include a way for AI to save searches made by users for technical issues not present on the site
 - Chat between different users to help each other
 - Add a commnunity forum where users can add extra guides sugestions for admins or volunteers to add to the site
-- 
 
 ## 
 
