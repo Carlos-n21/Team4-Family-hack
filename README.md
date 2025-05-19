@@ -13,7 +13,7 @@ That would be achieved through showing guides for the users to fix their IT issu
 Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 
 ## Table of Contents
-- []()
+- [FamilyTech](#familytech)
     - [Introduction](#introduction)
     - [Table of Contents](#table-of-contents)
     - [Overview](#overview)
@@ -383,7 +383,7 @@ A copy of the original repository can be made through GitHub. Please follow the 
 
   - Navigate to GitHub and log in.
   - Once logged in, navigate to this repository using this link Eventia Repository.
-  - Above the repository file section and to the top, right of the page is the 'Fork' button, click on this to make a fork of this repository.
+  - Above the repository file section and to the top, right ofTrue the page is the 'Fork' button, click on this to make a fork of this repository.
   - You should now have access to a forked copy of this repository in your Github account.
   - Follow the above Django Project Steps if you wish to work on the project.
 
@@ -391,10 +391,12 @@ A copy of the original repository can be made through GitHub. Please follow the 
 [Back to top](#top)
 
 ### Bugs to fix
-- Cele
+- Login sometimes not wroking after a user as logged out and wants to go back
+- Layout can present in a different way on medium screens
+
 ## AI Implementaion and Orchestration
 ### Code Generation
-The G
+Code
 
 ### Debugging
 Regu
@@ -448,7 +450,7 @@ Website manually tested on the following devices/browsers for responsiveness:
   - Google Chrome
   - Mozilla Firefox
   - Opera
-  - Vivaldi
+  - Vivaldi••••••••••
   - Samsung Galaxy A40
   - Google Pixel 8
 
@@ -456,7 +458,7 @@ Website manually tested on the following devices/browsers for responsiveness:
 
 ## Future Features
 - Add more interacivity to the page
-- Possibly, add the feature to have a message pop-up on all the pages
+- Possibly, add the feature to have a•••••••••• message pop-up on all the pages
 - Include a way for AI to save searches made by users for technical issues not present on the site
 - Chat between different users to help each other
 - Add a commnunity forum where users can add extra guides sugestions for admins or volunteers to add to the site
@@ -464,20 +466,6 @@ Website manually tested on the following devices/browsers for responsiveness:
 ## 
 
 - This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
-
-### Code References
-We.
-<br>
-
-### Acknowledgements
-Th
-
-### Owner Details
-This website was created by . Students of Code Institute.<br>
-
-  - [)
-
-[Back to top](#top)
 
 
 ## Chatbot Feature
@@ -507,3 +495,17 @@ The FamilyTech Chatbot offers instant help for IT issues that users may not find
   ![](docs/networkerrormsg.png)
 
 
+### Acknowledgements
+This was a good experience, with members communicating and laiaising to fix bugs and help each other.<br>
+At times a bit confusing and slower, but with huddles and discussions, project went forward.
+
+### Owner Details
+This website was created by student of Code Institute.<br>
+
+  - [Jarvey](https://github.com/OJarvey)
+  - [Tamanna](https://github.com/farhatamannaislam)
+  - [Tumelo](https://github.com/tumelo-maja)
+  - [Tumelo](https://github.com/Cam-4587)
+  - [Carlos](https://github.com/Carlos-n21)
+
+[Back to top](#top)
