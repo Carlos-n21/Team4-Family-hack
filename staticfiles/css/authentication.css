@@ -1,53 +1,137 @@
-/* Authentication Form Styling */
-.auth-form .form-control {
-  border-radius: 8px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  margin-bottom: 1rem;
+/* Authentication Styling */
+:root {
+  --primary: #4299e1;
+  --primary-dark: #3182ce;
+  --light-bg: #f9fafb;
+  --border: #e2e8f0;
+  --text: #2d3748;
+  --text-light: #718096;
+  --error: #e53e3e;
+  --success: #38a169;
+}
+
+.auth-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-bg);
+  padding: 2rem 0;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  position: relative;
+  border: none;
+
+}
+
+.auth-header {
+  background-color: var(--primary);
+  padding: 2rem 0;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.auth-header-decoration {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: white;
+  border-radius: 100% 100% 0 0;
+}
+
+.auth-header h2 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-header p {
+  opacity: 0.9;
+  margin-bottom: 0;
   font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-body {
+  padding: 2rem;
+}
+
+.auth-form .form-label {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.auth-form .form-control {
+  border-radius: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background-color: var(--light-bg);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
   transition: all 0.2s ease;
 }
 
 .auth-form .form-control:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(71, 105, 250, 0.2);
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+  background-color: white;
 }
 
-.auth-form .btn-primary {
+.auth-btn-primary {
   padding: 12px;
   font-weight: 500;
-  border-radius: 8px;
-  background-color: #4299e1;
-  border-color: #4299e1;
-  transition: all 0.2s ease;
-}
-
-.auth-form .btn-primary:hover {
-  background-color: #3182ce;
-  border-color: #3182ce;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
-}
-
-.auth-form label {
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 0.5rem;
-}
-
-/* For Django form widgets */
-#id_username, #id_password {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #E2E3E6;
   font-size: 1rem;
+  border-radius: 10px;
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-#id_username:focus, #id_password:focus {
-  outline: none;
-  border-color: #4299e1;
-  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+.auth-btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(66, 153, 225, 0.25);
+}
+
+.auth-btn-primary:focus {
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.25);
+}
+
+.auth-btn-primary:active {
+  transform: translateY(0);
+}
+
+.auth-btn-secondary {
+  padding: 12px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.auth-btn-secondary:hover {
+  background-color: var(--light-bg);
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .auth-divider {
@@ -61,11 +145,93 @@
 .auth-divider::after {
   content: '';
   flex: 1;
-  border-bottom: 1px solid #E2E3E6;
+  border-bottom: 1px solid var(--border);
 }
 
 .auth-divider span {
-  padding: 0 10px;
-  color: #718096;
+  padding: 0 16px;
+  color: var(--text-light);
   font-size: 0.9rem;
+}
+
+.auth-form-text {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-alert {
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-alert-error {
+  background-color: rgba(229, 62, 62, 0.1);
+  color: var(--error);
+  border-left: 4px solid var(--error);
+}
+
+/* For Django form widgets */
+#id_username, #id_password, #id_password1, #id_password2, 
+#id_email, #id_first_name, #id_last_name {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--light-bg);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+#id_username:focus, #id_password:focus, #id_password1:focus, 
+#id_password2:focus, #id_email:focus, #id_first_name:focus, #id_last_name:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15);
+  background-color: white;
+}
+
+/* Social login buttons */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+  border: 1px solid var(--border);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-body {
+    padding: 1.5rem;
+  }
+  
+  .auth-header {
+    padding: 1.5rem 0;
+  }
+  
+  .auth-header-decoration {
+    height: 40px;
+  }
 }

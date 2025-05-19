@@ -1,6 +1,6 @@
-# FamilyTech  <a id="top"/>
+# FamilyTech
 
-<img src=""> 
+<img src="docs/amiresponsive.png"> 
 
 ## Introduction
 
@@ -27,7 +27,8 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Users](#users)
     - [Wireframes](#wireframes)
     - [Imagery](#imagery)
-    - [Features](#features)
+- [Features](#features)
+  - [Chatbot](#chatbot-feature)
 - [Technologies Used](#technologies-used)
     - [Languages and Technologies](#languages-and-technologies)
     - [Libraries](#libraries)
@@ -35,7 +36,6 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 - [Deployment](#deployment)
     - [Connecting to GigHub](#connecting-to-github)
     - [Django Project Setup](#django-project-setup)
-    - [Cloudinary API](#cloudinary-api)
     - [Heroku Deployment](#heroku-deployment)
     - [Clone Project](#clone-project)
     - [Fork Project](#fork-project)
@@ -83,17 +83,19 @@ Some of the features available
 
 ## Colour Scheme
 
-#ffffff - White
-#4b5563 - Bright Grey
-#4299e1 - Tufts Blue
-#2d3748 - Japanese Indigo
-#4b5563 - Independence
+- #ffffff - White
+- #4b5563 - Bright Grey
+- #4299e1 - Tufts Blue
+- #2d3748 - Japanese Indigo
+- #4b5563 - Independence
 
- - [Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
+[Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
+
+![](/docs/colourpalette.png)
 
 Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 
-<img src="" style="width: 90%; height: 60%;"><br>
+![](/docs/colorname.png)
 
 | Colour      | WCAG Ratio (against #121212) | WCAG Contrast          |
 |-------------|-------------------------------|-------------------------|
@@ -102,14 +104,16 @@ Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 | Roseberry   | Pass (6.71:1)                | ✅✅ AAA               |
 | Bright Blue | Pass (6.95:1)                | ✅✅ AAA               |
 
-## Contrast Check
-<img src=""><br>
-
 ## Typography
 Fonts used for this website were:
 
   - [Roboto](https://fonts.google.com/specimen/Roboto)
   - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
+  - [Poppins](https://fonts.google.com/specimen/Poppins)
+
+Icons were used from 
+- [google icons](https://fonts.google.com/icons)
+- [font awesome](https://fontawesome.com/)
   
   
 [Back to top](#top)
@@ -118,7 +122,9 @@ Fonts used for this website were:
 
 Initial idea for the chat was to create help guides for tasks done at home, not just with technology, but also with household appliances and where to find different things.<br>
 
-After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances, if possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
+After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances.
+
+If possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
 
 With this done, different areas of the site (back-end, front-end, colours, etc, where picked by different members of the team.<br>
 
@@ -247,19 +253,14 @@ Persona 3: Freelance IT Support Technician
 ### Wireframes
 Initial wireframes - desktop view:
 
-<img src="">
-<img src="">
+<img src="docs/mobile-section.png">
+<img src="docs/profile.png">
+<img src="docs/task.png">
+<img src="docs/homepage.png">
 
 Initial wireframes - mobile view:
 
-<img src="">
-<img src="">
-
-The initial concept was based on:
-
-  - [doc)
-
-Afns.<br>
+<img src="docs/mobile-view.png">
 
 [Back to top](#top)
 
@@ -273,7 +274,36 @@ Image used on the homepage:
 ## Features
 Some of the features that can be seen on the website are:
 
-An
+## Chatbot Feature
+
+![](docs/chatbot.png)
+
+### Overview
+The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
+
+### How to Use
+- Open the 'Chatbot' section from the navigation menu
+- Type your question in the chat box and press Enter
+- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
+
+### Key Features
+- Natural language Q&A for family tech problems
+- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
+- Integrated in the site for real-time help
+
+### Error Handling
+  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
+
+  ![](docs/errormsg.png)
+
+  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
+
+  ![](docs/networkerrormsg.png)
+
+
+
+
+
 
 [Back to top](#top)
 
@@ -290,8 +320,21 @@ An
   - Heroku
 
 ### Libraries
-  - Django v3.2.19
-  - Google Fonts
+- annotated-types v0.7.0
+- asgiref v3.8.1
+- distro v1.9.0
+- Django v5.2.1
+- gunicorn v23.0.0
+- jiter v0.9.0
+- openai v1.79.0
+- pillow v11.2.1
+- pydantic v2.11.4
+- pydantic_core v2.33.2
+- python-dotenv v1.1.0
+- sqlparse v0.5.3
+- tqdm v4.67.1
+- typing-inspection v0.4.0
+- whitenoise v6.9.0
 
 ### Tools and Programs
   - Balsamiq wireframe
@@ -310,91 +353,68 @@ To begin this project from scratch, you must first create a new GitHub repositor
   - Navigate to the above CI Full Template.<br>
   - Click 'Use this template' -> 'Create a new repository'.<br>
   - Choose a new repository name and click 'Create repository from template'.<br>
-  - In your new repository space, click the purple CodeAnywhere (if this is your IDE of choice) button to generate a new workspace.<br>
+  - In your new repository space, click the purple CodeAnywhere (if this is your IDE of choice) button to generate a new workspace, or green one if you are using gitpod.<br>
 
-[Back to top](#top)
+### Within the codespace
 
-### Django Project Setup<br>
-Install Django and supporting libraries:<br>
-  - pip3 install 'django<4' gunicorn<br>
-  - pip3 install dj_database_url psycopg2<br>
-  - pip3 install dj3-cloudinary-storage<br>
+#### Procfile
 
-Once you have installed any relevant dependencies or libraries, such as the ones listed above, it is important to create a requirements.txt file and add all installed libraries to it with the pip3 freeze --local > requirements.txt command in the terminal.
++ Install the gunicorn python package and freeze to requirements.txt.
 
-Create a new Django project in the terminal django-admin startproject ems .
++ Create a file called 'Procfile' and add the following command ``` web: gunicorn familytech.wsgi ```.
 
-Create a new app eg. python3 mangage.py startapp events
+#### Deployment with static files
 
-Add this to list of INSTALLED_APPS in settings.py - 'booking',
++ The whitenoise python package was installed and added to requirements.txt
 
-Create a superuser for the project to allow Admin access and enter credentials: python3 manage.py createsuperuser
++ In settings.py add whitenoise middleware to middleware and add a static root path to 'staticfiles'.
+  - ```'whitenoise.middleware.WhiteNoiseMiddleware',```
 
-Migrate the changes with commands: python3 manage.py migrate
++ Enter the command ``` python3 manage.py collectstatic ``` into the terminal.
 
-An env.py file must be created to store all protected data such as the 
-DATABASE_URL and SECRET_KEY. These may be called upon in your project's settings.py file along with your Database configurations. The env.py file must be added to your gitignore file so that your important, protected information is not pushed to public viewing on GitHub. For adding to env.py:
++ Create the file 'runtime.txt' and add a supported runtime from [supported runtimes](https://devcenter.heroku.com/articles/python-support#specifying-a-python-version).
++  in Settings.py make sure that that Allowed Hosts and CSRF_TRUSTED_ORIGINS are set so they include the Heroku app
+  ````
+      ALLOWED_HOSTS = [
+        'localhost',
+        '127.0.0.1',
+        '.gitpod.io',
+        **'.herokuapp.com'**
+    ]
+    
+    CSRF_TRUSTED_ORIGINS = [
+        "https://*.gitpod.io",  
+        **"https://*.herokuapp.com"**  
+    ]
 
-  - import os
-  - os.environ["DATABASE_URL"]="<copiedURLfrom postgresql://neondb_owner>"
-  - os.environ["SECRET_KEY"]="my_super^secret@key"
+  ````
++ #### Debug
+    + Set debug to False on settings.py
 
-For adding to settings.py:
+#### Committing changes
 
-  - import os
-  - import dj_database_url
-  - if os.path.exists("env.py"):
-  - import env
-  - SECRET_KEY = os.environ.get('SECRET_KEY') (actual key hidden within env.py)
++ git add. , commit and push the changes with and appropriate commit message such as "prepare project for deployment"
 
-Replace DATABASES with:
+### Heroku Deployment
 
-DATABASES = {<br>
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))<br>
-  }
+This project was deployed using Heroku.
 
-Set up the templates directory in settings.py:
-  - Under BASE_DIR enter TEMPLATES_DIR = os.path.join(BASE_DIR, ‘templates’)
-  - Update TEMPLATES = 'DIRS': [TEMPLATES_DIR] with:<br>
-  os.path.join(BASE_DIR, 'templates'),<br>
-  os.path.join(BASE_DIR, 'templates', 'allauth')<br>
-  - Create the media, static and templates directories in top level of project file in IDE workspace.<br>
-  
-A Procfile must be created within the project repo for Heroku deployment with the following placed within it: web: gunicorn ems.wsgi
+#### On Heroku
 
-Make the necessary migrations again.
++ Log into Heroku
++ Select 'Create New App' from your dashboard, choose an app name and select the appropriate region.
 
-[Back to top](#top)
++ Then In 'Config Vars' enter KEY:VALUE pairs for the app to run successfully. The KEY:VALUE pairs that you will need are your:<br>
 
-### Heroku deployment
-To start the deployment process , please follow the below steps:
+  - OPENAI_API_KEY:<"your openai api key">
+  - SECRET_KEY:<"your secret key">
++ Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
++ At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finished loading select 'open app'.
 
-  - Log in to Heroku or create an account if you are a new user.
-
-  - Once logged in, in the Heroku Dashboard, navigate to the 'New' button in the top, right corner, and select 'Create New App'.
-
-  - Enter an app name and choose your region. Click 'Create App'.
-
-  - In the Deploy tab, click on the 'Settings', reach the 'Config Vars' section and click on 'Reveal Config Vars'. Here you will enter KEY:VALUE pairs for the app to run successfully. The KEY:VALUE pairs that you will need are your:<br>
-CLOUDINARY_URL: cloudinary://....<br>
-DATABASE_URL:postgres://...<br>
-DISABLE_COLLECTSTATIC of value '1' (N.B Remove this Config Var before deployment),<br>
-PORT:8000<br>
-SECRET_KEY and value<br>
-
-  - Add the Heroku host name into ALLOWED_HOSTS in your projects settings.py file ->  ['800-nielmc-django-project-lxqprmm3qz.us2.codeanyapp.com', '.herokuapp.com', 'localhost', '127.0.0.1'].
-
-  - Once you are sure that you have set up the required files including your requirements.txt and Procfile, you have ensured that DEBUG=False, save your project, add the files, commit for initial deployment and push the data to GitHub.
-
-  - Go to the 'Deploy' tab and choose GitHub as the Deployment method.
-
-  - Search for the repository name, select the branch that you would like to build from, and connect it via the 'Connect' button.
-
-  - Choose from 'Automatic' or 'Manual' deployment options, I chose the 'Manual' deployment method. Click 'Deploy Branch'.
-
-  - Once the waiting period for the app to build has finished, click the 'View' link to bring you to your newly deployed site. If you receive any errors, Heroku will display a reason in the app build log for you to investigate. DISABLE_COLLECTSTATIC may be removed from the Config Vars once you have saved and pushed an image within your project, as can PORT:8000.
-
-[Back to top](#top)
+#### Extra notes on Deployment
+- If you are wanting to deploy the projet without any static files, you will need to have the KEY:VALUE pair <strong>DISABLE_COLLECTSTATIC: 1</strong> in your Heroku Config Vars which should be removed once your project has static files.
+- There is the option to select 'Resources' on the navigation menu and enable Eco Dynos on Heroku.
+---
 
 ### Clone project
 A local clone of this repository can be made on GitHub. Please follow the below steps:
@@ -407,9 +427,9 @@ A local clone of this repository can be made on GitHub. Please follow the below 
   - Change the current working directory to the location you want the cloned directory to be made.
   - Type git clone and paste in the copied URL from step 4.
   - Press 'Enter' for the local clone to be created.
-  - Using the pip3 install -r requirements.txt command, the dependencies and libraries needed for FreeFido will be installed.
-  - Set up your env.py file and from the above steps for Cloudinary and NeonSQL, gather the Cloudinary API key and the Neon SQL url for additon to your code.
-  - Ensure that your env.py file is placed in your .gitignore file and follow the remaining steps in the above Django Project Setup section before pushing your code to GitHub.
+  - Using the ```pip3 install -r requirements.txt``` command, the dependencies and libraries needed for FreeFido will be installed.
+  - Set up your .env file and Gather the OPENAI API and a secret key.
+  - Ensure that your .env file is placed in your .gitignore file and follow the remaining steps in the above Django Project Setup section before pushing your code to GitHub.
 
 ### Fork Project
 A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository:
@@ -446,7 +466,9 @@ Va
 ### HTML Validation
 Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input) to test the HTML on all webpages and updated as needed. No errors found after fixing as can be seen on the examples bellow.
 <details>
-  <img src="">
+  <img src="docs/html-validator-homepage">
+  <img src="docs/html-technical-issues.png">
+  <img src="docs/html-caht-bot.png">
 </details>
 
 [Back to top](#top)
@@ -455,11 +477,11 @@ Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input
 
 Used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) to test CSS style and no errors found.
 
-  <img src="">
+<img src="docs/css-validation.png">
 
 ### Lighthouse Audit
 
-Used Chrome Dev Tools Lighthouse to audit the site for response time and accessibility, as you can see onm the examples bellow.<br>
+Used Chrome Dev Tools Lighthouse to audit the site for response time and accessibility, as you can see om the examples below.<br>
 <details>
   <img src="">
 </details>
@@ -484,17 +506,19 @@ Website manually tested on the following devices/browsers for responsiveness:
 - Us
 
 ## Credits
+
+- This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
+
 ### Code References
-We.
-<br>
+
 
 ### Acknowledgements
-Th
+
 
 ### Owner Details
 This website was created by . Students of Code Institute.<br>
 
-  - [)
 
 [Back to top](#top)
+
 
