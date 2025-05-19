@@ -353,6 +353,13 @@
                                     <li>Update Wi-Fi drivers (Device Manager or Mac Software Update).</li>
                                 </ol>
                             </div>
+                            <div class="guide-card-body collapse" id="wifi-trouble">
+                                <ol class="steps-list">
+                                    <li>Restart the router and your computer.</li>
+                                    <li>Check Wi-Fi settings and reconnect to your network.</li>
+                                    <li>Update Wi-Fi drivers (Device Manager or Mac Software Update).</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                     <!-- Screen Flickering -->
@@ -590,7 +597,7 @@
                     <div class="col-md-6 mb-4">
                         <div class="guide-card shadow-sm">
                             <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#setup-router">
-                                <div class="icon-container"><i class="fa-solid fa-router"></i></div>
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
                                 <h3>Set Up a New Router</h3>
                                 <button 
                                     class="bookmark-btn"
@@ -607,6 +614,30 @@
                                     <li>Connect it to your modem with an Ethernet cable.</li>
                                     <li>Use your phone or computer to connect to the router's Wi-Fi.</li>
                                     <li>Follow the setup instructions in the manual or web portal.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#reset-router">
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
+                                <h3>Reset Wifi Router</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="reset-router"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_setup-router' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_setup-router' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="reset-router">
+                                <ol class="steps-list">
+                                    <li>Locate the power button on your wifi router and press and hold it for 10-15 seconds until all the lights start flashing.</li>
+                                    <li>Wait for the router to restart and the lights to stabilize.</li>
+                                    <li>Hold the reset button for 10-15 seconds until the lights on the router start flashing again. Release the reset button and wait for the router to restart. Your wifi router is now reset.</li>
+                                    
                                 </ol>
                             </div>
                         </div>
