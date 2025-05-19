@@ -1,4 +1,4 @@
-# FamilyTech  <a id="top"/>
+# FamilyTech
 
 <img src="docs/amiresponsive.png"> 
 
@@ -13,7 +13,7 @@ That would be achieved through showing guides for the users to fix their IT issu
 Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 
 ## Table of Contents
-- [FamilyTech](#familytech)
+- []()
     - [Introduction](#introduction)
     - [Table of Contents](#table-of-contents)
     - [Overview](#overview)
@@ -27,7 +27,8 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Users](#users)
     - [Wireframes](#wireframes)
     - [Imagery](#imagery)
-    - [Features](#features)
+- [Features](#features)
+  - [Chatbot](#chatbot-feature)
 - [Technologies Used](#technologies-used)
     - [Languages and Technologies](#languages-and-technologies)
     - [Libraries](#libraries)
@@ -35,7 +36,6 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 - [Deployment](#deployment)
     - [Connecting to GigHub](#connecting-to-github)
     - [Django Project Setup](#django-project-setup)
-    - [Cloudinary API](#cloudinary-api)
     - [Heroku Deployment](#heroku-deployment)
     - [Clone Project](#clone-project)
     - [Fork Project](#fork-project)
@@ -59,7 +59,6 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Media References](#media-references)
     - [Acknowledgments](#acknowledgements)
     - [Owner Details](#owner-details)
-- [Chatbot](#chatbot-feature)
 
 
 [Back to top](#top)
@@ -84,22 +83,37 @@ Some of the features available
 
 ## Colour Scheme
 
-#ffffff - White
-#4b5563 - Bright Grey
-#4299e1 - Tufts Blue
-#2d3748 - Japanese Indigo
-#4b5563 - Independence
+- #ffffff - White
+- #4b5563 - Bright Grey
+- #4299e1 - Tufts Blue
+- #2d3748 - Japanese Indigo
+- #4b5563 - Independence
 
- - [Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
+[Color Palette](https://colorkit.co/color-palette-generator/ffffff-4b5563-4299e1-2d3748-cac8c8-e9e7e7-f4BAF2E9f3f3/)
+
+![](/docs/colourpalette.png)
 
 Names checked with [color-name](https://www.color-name.com/hex/4b5563)
 
+![](/docs/colorname.png)
+
+| Colour      | WCAG Ratio (against #121212) | WCAG Contrast          |
+|-------------|-------------------------------|-------------------------|
+| Purple      | Pass (7.1:1)                 | ✅ AAA                 |
+| Indigo      | Pass (8.23:1)                | ✅✅ AAA               |
+| Roseberry   | Pass (6.71:1)                | ✅✅ AAA               |
+| Bright Blue | Pass (6.95:1)                | ✅✅ AAA               |
 
 ## Typography
 Fonts used for this website were:
 
   - [Roboto](https://fonts.google.com/specimen/Roboto)
   - [sans-serif](https://fonts.google.com/?query=sans+serif&categoryFilters=Sans+Serif:%2FSans%2F*)
+  - [Poppins](https://fonts.google.com/specimen/Poppins)
+
+Icons were used from 
+- [google icons](https://fonts.google.com/icons)
+- [font awesome](https://fontawesome.com/)
   
   
 [Back to top](#top)
@@ -108,7 +122,9 @@ Fonts used for this website were:
 
 Initial idea for the chat was to create help guides for tasks done at home, not just with technology, but also with household appliances and where to find different things.<br>
 
-After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances, if possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
+After discussing this, the group got to the conclusion that the hackathon theme was more related to tech issues and problems that different members of the family from different ages can find while using their devices, and we should focus more on this area, and add the household appliances.
+
+If possible, once the electronic devices (eg: mobile phone, latpop) are well covered and we are happy with the site working and responsiveness.<br>
 
 With this done, different areas of the site (back-end, front-end, colours, etc, where picked by different members of the team.<br>
 
@@ -246,7 +262,6 @@ Initial wireframes - mobile view:
 
 <img src="docs/mobile-view.png">
 
-
 [Back to top](#top)
 
 ### Imagery
@@ -259,11 +274,36 @@ Image used on the homepage:
 ## Features
 Some of the features that can be seen on the website are:
 
-- [Homepage](https://familytech-3d93c509ed81.herokuapp.com/) with information about the site
-- [Technical Issues](https://familytech-3d93c509ed81.herokuapp.com/technicalissues/) page with different devices that users might have with guides for common issues and troubleshooting
-- [Chatbot](https://familytech-3d93c509ed81.herokuapp.com/chatbot/) for issues not present on the site
-- [Booksmarks](https://familytech-3d93c509ed81.herokuapp.com/profile/bookmarks/) below the profile, after the user logs in, where the user can see is saved guides
-- Ability to save guides as bookmarks, by clicking on the [star icon](https://familytech-3d93c509ed81.herokuapp.com/technicalissues/mobile/), after being logged in.
+## Chatbot Feature
+
+![](docs/chatbot.png)
+
+### Overview
+The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
+
+### How to Use
+- Open the 'Chatbot' section from the navigation menu
+- Type your question in the chat box and press Enter
+- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
+
+### Key Features
+- Natural language Q&A for family tech problems
+- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
+- Integrated in the site for real-time help
+
+### Error Handling
+  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
+
+  ![](docs/errormsg.png)
+
+  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
+
+  ![](docs/networkerrormsg.png)
+
+
+
+
+
 
 [Back to top](#top)
 
@@ -280,8 +320,21 @@ Some of the features that can be seen on the website are:
   - Heroku
 
 ### Libraries
-  - Django v3.2.19
-  - Google Fonts
+- annotated-types v0.7.0
+- asgiref v3.8.1
+- distro v1.9.0
+- Django v5.2.1
+- gunicorn v23.0.0
+- jiter v0.9.0
+- openai v1.79.0
+- pillow v11.2.1
+- pydantic v2.11.4
+- pydantic_core v2.33.2
+- python-dotenv v1.1.0
+- sqlparse v0.5.3
+- tqdm v4.67.1
+- typing-inspection v0.4.0
+- whitenoise v6.9.0
 
 ### Tools and Programs
   - Balsamiq wireframe
@@ -374,16 +427,16 @@ A local clone of this repository can be made on GitHub. Please follow the below 
   - Change the current working directory to the location you want the cloned directory to be made.
   - Type git clone and paste in the copied URL from step 4.
   - Press 'Enter' for the local clone to be created.
-  - Using the pip3 install -r requirements.txt command, the dependencies and libraries needed for FreeFido will be installed.
-  - Set up your env.py file and from the above steps for Cloudinary and NeonSQL, gather the Cloudinary API key and the Neon SQL url for additon to your code.
-  - Ensure that your env.py file is placed in your .gitignore file and follow the remaining steps in the above Django Project Setup section before pushing your code to GitHub.
+  - Using the ```pip3 install -r requirements.txt``` command, the dependencies and libraries needed for FreeFido will be installed.
+  - Set up your .env file and Gather the OPENAI API and a secret key.
+  - Ensure that your .env file is placed in your .gitignore file and follow the remaining steps in the above Django Project Setup section before pushing your code to GitHub.
 
 ### Fork Project
 A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository:
 
   - Navigate to GitHub and log in.
   - Once logged in, navigate to this repository using this link Eventia Repository.
-  - Above the repository file section and to the top, right ofTrue the page is the 'Fork' button, click on this to make a fork of this repository.
+  - Above the repository file section and to the top, right of the page is the 'Fork' button, click on this to make a fork of this repository.
   - You should now have access to a forked copy of this repository in your Github account.
   - Follow the above Django Project Steps if you wish to work on the project.
 
@@ -391,12 +444,10 @@ A copy of the original repository can be made through GitHub. Please follow the 
 [Back to top](#top)
 
 ### Bugs to fix
-- Login sometimes not wroking after a user as logged out and wants to go back
-- Layout can present in a different way on medium screens
-
+- Cele
 ## AI Implementaion and Orchestration
 ### Code Generation
-Code
+The G
 
 ### Debugging
 Regu
@@ -426,21 +477,13 @@ Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input
 
 Used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) to test CSS style and no errors found.
 
-  <img src="docs/css-validation.png">
-  <img src="docs/css-validation-authentication.png">
+<img src="docs/css-validation.png">
 
 ### Lighthouse Audit
 
-Used Chrome Dev Tools Lighthouse to audit the site for response time and accessibility, as you can see onm the examples bellow.<br>
+Used Chrome Dev Tools Lighthouse to audit the site for response time and accessibility, as you can see om the examples below.<br>
 <details>
-  <img src="docs/lighthouse-homepage.png">
-  <img src="docs/lighthouse-laptop.png">
-  <img src="docs/lighthouse-login.png">
-  <img src="docs/lighthouse-mobilde-devices.png">
-  <img src="docs/lighthouse-profile.png">
-  <img src="docs/lighthouse-technical-issues.png">
-  <img src="docs/lighthouse-chatbot.png">
-  <img src="docs/lighthouse-bookmarks.png">
+  <img src="">
 </details>
 
 [Back to top](#top)
@@ -450,62 +493,32 @@ Website manually tested on the following devices/browsers for responsiveness:
   - Google Chrome
   - Mozilla Firefox
   - Opera
-  - Vivaldi••••••••••
+  - Vivaldi
   - Samsung Galaxy A40
   - Google Pixel 8
+  - iPhone 16
+  - iPad
+  - Samsung Galaxy
 
 [Back to top](#top)
 
 ## Future Features
-- Add more interacivity to the page
-- Possibly, add the feature to have a•••••••••• message pop-up on all the pages
-- Include a way for AI to save searches made by users for technical issues not present on the site
-- Chat between different users to help each other
-- Add a commnunity forum where users can add extra guides sugestions for admins or volunteers to add to the site
+- Us
 
-## 
+## Credits
 
 - This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
 
-
-## Chatbot Feature
-
-![](docs/chatbot.png)
-
-### Overview
-The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
-
-### How to Use
-- Open the 'Chatbot' section from the navigation menu
-- Type your question in the chat box and press Enter
-- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
-
-### Key Features
-- Natural language Q&A for family tech problems
-- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
-- Integrated in the site for real-time help
-
-### Error Handling
-  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
-
-  ![](docs/errormsg.png)
-
-  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
-
-  ![](docs/networkerrormsg.png)
+### Code References
 
 
 ### Acknowledgements
-This was a good experience, with members communicating and laiaising to fix bugs and help each other.<br>
-At times a bit confusing and slower, but with huddles and discussions, project went forward.
+
 
 ### Owner Details
-This website was created by student of Code Institute.<br>
+This website was created by . Students of Code Institute.<br>
 
-  - [Jarvey](https://github.com/OJarvey)
-  - [Tamanna](https://github.com/farhatamannaislam)
-  - [Tumelo](https://github.com/tumelo-maja)
-  - [Tumelo](https://github.com/Cam-4587)
-  - [Carlos](https://github.com/Carlos-n21)
 
 [Back to top](#top)
+
+
