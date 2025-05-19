@@ -432,12 +432,20 @@ Used [W3C Markup Validation Service](https://validator.w3.org/#validate_by_input
 Used [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input) to test CSS style and no errors found.
 
   <img src="docs/css-validation.png">
+  <img src="docs/css-validation-authentication.png">
 
 ### Lighthouse Audit
 
 Used Chrome Dev Tools Lighthouse to audit the site for response time and accessibility, as you can see onm the examples bellow.<br>
 <details>
-  <img src="">
+  <img src="docs/lighthouse-homepage.png">
+  <img src="docs/lighthouse-laptop.png">
+  <img src="docs/lighthouse-login.png">
+  <img src="docs/lighthouse-mobilde-devices.png">
+  <img src="docs/lighthouse-profile.png">
+  <img src="docs/lighthouse-technical-issues.png">
+  <img src="docs/lighthouse-chatbot.png">
+  <img src="docs/lighthouse-bookmarks.png">
 </details>
 
 [Back to top](#top)
@@ -450,9 +458,6 @@ Website manually tested on the following devices/browsers for responsiveness:
   - Vivaldi
   - Samsung Galaxy A40
   - Google Pixel 8
-  - iPhone 16
-  - iPad
-  - Samsung Galaxy
 
 [Back to top](#top)
 
