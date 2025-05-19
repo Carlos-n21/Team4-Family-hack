@@ -1,0 +1,1001 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load dict_extras %}
+{% block content %}
+
+<section class="device-guide-page">
+    <div class="container py-5">
+        <!-- Back navigation -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <a href="{% url 'technicalissues' %}" class="text-decoration-none back-link">
+                    <i class="fa-solid fa-arrow-left me-2"></i> Back to devices
+                </a>
+            </div>
+        </div>
+        
+        <!-- Device header -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="device-header bg-white p-4 rounded-4 shadow-sm d-flex align-items-center">
+                    <img src="{% static 'images/'|add:device_info.icon %}" alt="{{ device_info.name }} icon" class="device-icon me-4">
+                    <div>
+                        <h1 class="mb-1">{{ device_info.name }}</h1>
+                        <p class="text-muted mb-0">{{ device_info.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Guide Toggle -->
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <div class="toggle-container rounded-pill shadow-sm">
+                    <div class="toggle-switch" id="guide-toggle">
+                        <button class="toggle-btn active" data-target="how-to">
+                            <i class="fa-solid fa-book-open me-2"></i> 'How to' guides
+                        </button>
+                        <button class="toggle-btn" data-target="troubleshoot">
+                            <i class="fa-solid fa-wrench me-2"></i> Troubleshooting
+                        </button>
+                        <span class="toggle-indicator"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} --- Guide Content Sections --- {% endcomment %}
+
+        {% if device_type == 'mobile' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Connect to Wi-Fi -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-guide-mobile">
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
+                                <h3>Connect to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wifi-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_wifi-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_wifi-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="wifi-guide-mobile">
+                                <ol class="steps-list">
+                                    <li>Open the <strong>Settings</strong> app.</li>
+                                    <li>Tap <strong>Wi-Fi</strong> and turn it on.</li>
+                                    <li>Select your network and enter the password.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Change brightness -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#brightness-guide-mobile">
+                                <div class="icon-container"><i class="fa-solid fa-sun"></i></div>
+                                <h3>Change Screen Brightness</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="brightness-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_brightness-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_brightness-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="brightness-guide-mobile">
+                                <ol class="steps-list">
+                                    <li>Swipe down from the top of your screen.</li>
+                                    <li>Move the brightness slider left/right.</li>
+                                    <li>Or go to <strong>Settings</strong> &gt; <strong>Display</strong>.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Set an alarm -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#alarm-guide-mobile">
+                                <div class="icon-container"><i class="fa-solid fa-bell"></i></div>
+                                <h3>Set an Alarm</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="alarm-guide-mobile"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_alarm-guide-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_alarm-guide-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="alarm-guide-mobile">
+                                <ol class="steps-list">
+                                    <li>Open the <strong>Clock</strong> app.</li>
+                                    <li>Tap <strong>Alarm</strong>, then the <strong>+</strong> icon.</li>
+                                    <li>Set the time and save.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- Sound not working -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#sound-mobile">
+                                <div class="icon-container"><i class="fa-solid fa-volume-xmark"></i></div>
+                                <h3>Sound Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="sound-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_sound-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_sound-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="sound-mobile">
+                                <ol class="steps-list">
+                                    <li>Check the volume and mute settings.</li>
+                                    <li>Try headphones and different apps.</li>
+                                    <li>Restart your phone.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bluetooth not connecting -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#bluetooth-mobile">
+                                <div class="icon-container"><i class="fa-brands fa-bluetooth"></i></div>
+                                <h3>Bluetooth Not Connecting</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="bluetooth-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_bluetooth-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_bluetooth-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="bluetooth-mobile">
+                                <ol class="steps-list">
+                                    <li>Turn Bluetooth off and back on.</li>
+                                    <li>Forget and re-pair the device.</li>
+                                    <li>Restart your phone and the Bluetooth device.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- App not working -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#app-mobile">
+                                <div class="icon-container"><i class="fa-solid fa-mobile-screen"></i></div>
+                                <h3>App Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="app-mobile"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_app-mobile' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_app-mobile' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="app-mobile">
+                                <ol class="steps-list">
+                                    <li>Restart the app.</li>
+                                    <li>Check for app updates in the store.</li>
+                                    <li>Restart your phone.</li>
+                                    <li>Clear cache or reinstall the app.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'laptop' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Install a Program -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#install-program">
+                                <div class="icon-container"><i class="fa-solid fa-download"></i></div>
+                                <h3>How to Install a Program</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="install-program"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_install-program' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_install-program' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="install-program">
+                                <ol class="steps-list">
+                                    <li>Download the program from its official website.</li>
+                                    <li>Open the downloaded file (.exe for Windows, .dmg for Mac).</li>
+                                    <li>Follow the installation instructions.</li>
+                                    <li>Open the program from the Start menu (Windows) or Applications (Mac).</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Use Facebook -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#facebook-guide">
+                                <div class="icon-container"><i class="fa-brands fa-facebook"></i></div>
+                                <h3>How to Use Facebook</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="facebook-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_facebook-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_facebook-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="facebook-guide">
+                                <ol class="steps-list">
+                                    <li>Open a web browser and go to <strong>www.facebook.com</strong>.</li>
+                                    <li>Log in with your email/phone and password.</li>
+                                    <li>Explore your news feed, post updates, and connect with friends.</li>
+                                    <li>Click the down arrow at the top right to log out when done.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Search Online -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#google-guide">
+                                <div class="icon-container"><i class="fa-brands fa-google"></i></div>
+                                <h3>How to Search Online</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="google-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_google-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_google-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="google-guide">
+                                <ol class="steps-list">
+                                    <li>Open a web browser and go to <strong>www.google.com</strong>.</li>
+                                    <li>Type your search terms and press Enter.</li>
+                                    <li>Click on any result to open the page.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- Won’t Turn On -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#not-turning-on">
+                                <div class="icon-container"><i class="fa-solid fa-power-off"></i></div>
+                                <h3>Laptop/Desktop Won’t Turn On</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="not-turning-on"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_not-turning-on' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_not-turning-on' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="not-turning-on">
+                                <ol class="steps-list">
+                                    <li>Check that the device is plugged in and the charging light is on (laptop), or that all cables are secure (desktop).</li>
+                                    <li>Try a hard reset: hold power button for 10-15 seconds, then turn on again.</li>
+                                    <li>If the screen is black, check display connections and brightness.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Running Slow -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#slow-computer">
+                                <div class="icon-container"><i class="fa-solid fa-gauge-simple"></i></div>
+                                <h3>Computer is Running Slow</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="slow-computer"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_slow-computer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_slow-computer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="slow-computer">
+                                <ol class="steps-list">
+                                    <li>Restart your computer.</li>
+                                    <li>Close unnecessary programs (use Task Manager or Force Quit).</li>
+                                    <li>Free up disk space (Disk Cleanup or About This Mac &gt; Storage).</li>
+                                    <li>Scan for viruses and malware.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Won’t Connect to Wi-Fi -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wifi-trouble">
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
+                                <h3>Won’t Connect to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wifi-trouble"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_wifi-trouble' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_wifi-trouble' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="wifi-trouble">
+                                <ol class="steps-list">
+                                    <li>Restart the router and your computer.</li>
+                                    <li>Check Wi-Fi settings and reconnect to your network.</li>
+                                    <li>Update Wi-Fi drivers (Device Manager or Mac Software Update).</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Screen Flickering -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#screen-flicker">
+                                <div class="icon-container"><i class="fa-solid fa-desktop"></i></div>
+                                <h3>Screen Flickering or Glitching</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="screen-flicker"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_screen-flicker' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_screen-flicker' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="screen-flicker">
+                                <ol class="steps-list">
+                                    <li>Restart your computer.</li>
+                                    <li>Check for software and graphics driver updates.</li>
+                                    <li>Test with an external monitor to check for hardware issues.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Frozen Computer -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#frozen-pc">
+                                <div class="icon-container"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <h3>Computer is Not Responding (Frozen)</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="frozen-pc"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_frozen-pc' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_frozen-pc' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="frozen-pc">
+                                <ol class="steps-list">
+                                    <li>Try closing the frozen program using Task Manager (Ctrl+Alt+Del) or Force Quit (Cmd+Option+Esc).</li>
+                                    <li>Force a restart if necessary by holding the power button.</li>
+                                    <li>Check for system updates.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Noisy Computer -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#noisy-computer">
+                                <div class="icon-container"><i class="fa-solid fa-volume-high"></i></div>
+                                <h3>Computer Is Making Strange Noises</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="noisy-computer"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_noisy-computer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_noisy-computer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="noisy-computer">
+                                <ol class="steps-list">
+                                    <li>Check for dust in fans and clean gently with compressed air.</li>
+                                    <li>Close unused programs.</li>
+                                    <li>Check hard drive health using system tools.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Keyboard/Mouse Not Working -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#keyboard-mouse">
+                                <div class="icon-container"><i class="fa-solid fa-keyboard"></i></div>
+                                <h3>Keyboard or Mouse Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="keyboard-mouse"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_keyboard-mouse' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_keyboard-mouse' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="keyboard-mouse">
+                                <ol class="steps-list">
+                                    <li>Check connections or batteries (for wireless devices).</li>
+                                    <li>Restart the computer.</li>
+                                    <li>Update drivers in Device Manager or System Preferences.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Display Too Dim -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#dim-display">
+                                <div class="icon-container"><i class="fa-solid fa-sun"></i></div>
+                                <h3>Display Is Too Dim</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="dim-display"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_dim-display' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_dim-display' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="dim-display">
+                                <ol class="steps-list">
+                                    <li>Adjust brightness using keyboard keys or monitor controls.</li>
+                                    <li>Check power settings and system preferences.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'tv' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Set up TV -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#setup-tv">
+                                <div class="icon-container"><i class="fa-solid fa-tv"></i></div>
+                                <h3>Set Up a New TV</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="setup-tv"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_setup-tv' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_setup-tv' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="setup-tv">
+                                <ol class="steps-list">
+                                    <li>Unbox and place the TV on a stable surface.</li>
+                                    <li>Connect the power cable and switch it on.</li>
+                                    <li>Follow the on-screen setup steps.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Connect to Wi-Fi -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#tv-wifi">
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
+                                <h3>Connect TV to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="tv-wifi"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_tv-wifi' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_tv-wifi' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="tv-wifi">
+                                <ol class="steps-list">
+                                    <li>Press the <strong>Menu</strong> button on your remote.</li>
+                                    <li>Go to <strong>Network Settings</strong> &gt; <strong>Wi-Fi</strong>.</li>
+                                    <li>Select your network and enter the password.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- No Signal -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#no-signal">
+                                <div class="icon-container"><i class="fa-solid fa-plug"></i></div>
+                                <h3>No Signal Message</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="no-signal"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_no-signal' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_no-signal' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="no-signal">
+                                <ol class="steps-list">
+                                    <li>Check that cables are properly plugged in.</li>
+                                    <li>Select the correct input/source using your remote.</li>
+                                    <li>Restart the TV and the connected device.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TV Won't Turn On -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#tv-wont-on">
+                                <div class="icon-container"><i class="fa-solid fa-power-off"></i></div>
+                                <h3>TV Won’t Turn On</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="tv-wont-on"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_tv-wont-on' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_tv-wont-on' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="tv-wont-on">
+                                <ol class="steps-list">
+                                    <li>Ensure the TV is plugged in and power switch is on.</li>
+                                    <li>Try a different power socket or cable.</li>
+                                    <li>Check for indicator lights; if none, TV may need repair.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'router' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Set Up Router -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#setup-router">
+                                <div class="icon-container"><i class="fa-solid fa-router"></i></div>
+                                <h3>Set Up a New Router</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="setup-router"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_setup-router' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_setup-router' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="setup-router">
+                                <ol class="steps-list">
+                                    <li>Plug the router into a power outlet.</li>
+                                    <li>Connect it to your modem with an Ethernet cable.</li>
+                                    <li>Use your phone or computer to connect to the router's Wi-Fi.</li>
+                                    <li>Follow the setup instructions in the manual or web portal.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Change Wi-Fi Password -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#change-password">
+                                <div class="icon-container"><i class="fa-solid fa-key"></i></div>
+                                <h3>Change Wi-Fi Password</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="change-password"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_change-password' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_change-password' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="change-password">
+                                <ol class="steps-list">
+                                    <li>Log in to the router's admin panel (check the label for the address, usually <strong>192.168.0.1</strong> or <strong>192.168.1.1</strong>).</li>
+                                    <li>Find <strong>Wireless Settings</strong> and update the Wi-Fi password.</li>
+                                    <li>Save changes and reconnect your devices.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- No Internet -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#no-internet">
+                                <div class="icon-container"><i class="fa-solid fa-globe"></i></div>
+                                <h3>No Internet Connection</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="no-internet"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_no-internet' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_no-internet' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="no-internet">
+                                <ol class="steps-list">
+                                    <li>Restart the router and modem.</li>
+                                    <li>Check cables and connections.</li>
+                                    <li>Contact your internet provider if the issue persists.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Forgotten Wi-Fi Password -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#forgot-password">
+                                <div class="icon-container"><i class="fa-solid fa-key"></i></div>
+                                <h3>Forgotten Wi-Fi Password</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="forgot-password"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_forgot-password' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_forgot-password' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="forgot-password">
+                                <ol class="steps-list">
+                                    <li>Log in to the router’s admin panel.</li>
+                                    <li>View or reset the Wi-Fi password in Wireless Settings.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'smartmeter' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Read Your Smart Meter -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#read-meter">
+                                <div class="icon-container"><i class="fa-solid fa-bolt"></i></div>
+                                <h3>Read Your Smart Meter</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="read-meter"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_read-meter' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_read-meter' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="read-meter">
+                                <ol class="steps-list">
+                                    <li>Press the button on your smart meter to wake up the display.</li>
+                                    <li>The current reading should appear on the screen.</li>
+                                    <li>Record the numbers, including zeros, from left to right.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Understand Usage -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#usage-guide">
+                                <div class="icon-container"><i class="fa-solid fa-chart-line"></i></div>
+                                <h3>Understand Your Usage</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="usage-guide"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_usage-guide' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_usage-guide' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="usage-guide">
+                                <ol class="steps-list">
+                                    <li>Navigate through the menu to find daily or weekly usage statistics.</li>
+                                    <li>Use the information to monitor energy/water usage and save money.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- Meter Not Working -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#meter-not-working">
+                                <div class="icon-container"><i class="fa-solid fa-exclamation-triangle"></i></div>
+                                <h3>Meter Not Working</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="meter-not-working"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_meter-not-working' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_meter-not-working' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="meter-not-working">
+                                <ol class="steps-list">
+                                    <li>Check that the meter has power and display is on.</li>
+                                    <li>If the display is blank, try pressing any button.</li>
+                                    <li>Contact your provider if it still doesn't work.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Reading Seems Wrong -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#wrong-reading">
+                                <div class="icon-container"><i class="fa-solid fa-question"></i></div>
+                                <h3>Reading Seems Wrong</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="wrong-reading"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_wrong-reading' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_wrong-reading' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="wrong-reading">
+                                <ol class="steps-list">
+                                    <li>Compare with last week’s reading to see if there’s a big jump.</li>
+                                    <li>Call your supplier for help if readings seem inaccurate.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        {% elif device_type == 'printer' %}
+            <div class="guide-section how-to-section" id="how-to">
+                <div class="row">
+                    <!-- Connect Printer to Wi-Fi -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#printer-wifi">
+                                <div class="icon-container"><i class="fa-solid fa-wifi"></i></div>
+                                <h3>Connect Printer to Wi-Fi</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="printer-wifi"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_printer-wifi' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_printer-wifi' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="printer-wifi">
+                                <ol class="steps-list">
+                                    <li>On the printer, go to Network or Wi-Fi settings.</li>
+                                    <li>Select your Wi-Fi network and enter the password.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Install Ink Cartridges -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#ink-printer">
+                                <div class="icon-container"><i class="fa-solid fa-droplet"></i></div>
+                                <h3>Install Ink Cartridges</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="ink-printer"
+                                    data-guide-type="how-to"
+                                    title="{% if bookmarks|get_item:'how-to_ink-printer' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'how-to_ink-printer' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="ink-printer">
+                                <ol class="steps-list">
+                                    <li>Open the printer cover or ink access door.</li>
+                                    <li>Remove empty cartridge(s).</li>
+                                    <li>Insert new cartridge(s) and close the cover.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="guide-section troubleshoot-section d-none" id="troubleshoot">
+                <div class="row">
+                    <!-- Printer Won't Print -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#not-printing">
+                                <div class="icon-container"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <h3>Printer Won’t Print</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="not-printing"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_not-printing' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_not-printing' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="not-printing">
+                                <ol class="steps-list">
+                                    <li>Check if the printer is turned on and connected to Wi-Fi or cable.</li>
+                                    <li>Check for any error messages on the printer display.</li>
+                                    <li>Restart both your printer and computer.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Paper Jam -->
+                    <div class="col-md-6 mb-4">
+                        <div class="guide-card shadow-sm">
+                            <div class="guide-card-header" data-bs-toggle="collapse" data-bs-target="#paper-jam">
+                                <div class="icon-container"><i class="fa-solid fa-file-lines"></i></div>
+                                <h3>Fix a Paper Jam</h3>
+                                <button 
+                                    class="bookmark-btn"
+                                    data-guide-key="paper-jam"
+                                    data-guide-type="troubleshoot"
+                                    title="{% if bookmarks|get_item:'troubleshoot_paper-jam' %}Remove bookmark{% else %}Save to bookmarks{% endif %}">
+                                    <i class="fa{% if bookmarks|get_item:'troubleshoot_paper-jam' %}s{% else %}r{% endif %} fa-star text-warning"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="guide-card-body collapse" id="paper-jam">
+                                <ol class="steps-list">
+                                    <li>Turn off the printer.</li>
+                                    <li>Gently remove any jammed paper.</li>
+                                    <li>Check inside all access doors for extra paper.</li>
+                                    <li>Turn the printer back on and try printing again.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            <!-- Placeholder for devices still in development -->
+            <div class="row">
+                <div class="col-12 text-center py-5">
+                    <h2>We're still working on guides for this device.</h2>
+                    <p class="mb-4">Please check back soon or try another device category.</p>
+                    <a href="{% url 'technicalissues' %}" class="btn btn-primary">
+                        View all devices
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Guide Toggle JS
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        const indicator = document.querySelector('.toggle-indicator');
+        
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Toggle active class
+                toggleButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show/hide sections
+                const targetId = this.dataset.target;
+                document.querySelectorAll('.guide-section').forEach(section => {
+                    section.classList.toggle('d-none', section.id !== targetId);
+                });
+                
+                // Move indicator
+                if (indicator) {
+                    indicator.style.transform = targetId === 'how-to' ? 
+                        'translateX(0)' : 'translateX(100%)';
+                }
+            });
+        });
+
+        // Bookmark functionality
+        document.querySelectorAll('.bookmark-btn').forEach(btn => {
+            btn.addEventListener('click', async function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                {% if not user.is_authenticated %}
+                    window.location.href = "{% url 'login' %}?next={{ request.path }}";
+                    return;
+                {% endif %}
+
+                const guideKey = this.dataset.guideKey;
+                const guideType = this.dataset.guideType;
+                const icon = this.querySelector('i');
+                
+                try {
+                    const response = await fetch("{% url 'toggle_bookmark' %}", {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': "{{ csrf_token }}",
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            device_type: "{{ device_type }}",
+                            guide_type: guideType,
+                            guide_key: guideKey
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (data.status === 'added' || data.status === 'bookmarked') {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        btn.title = 'Remove bookmark';
+                    } else if (data.status === 'removed') {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        btn.title = 'Save to bookmarks';
+                    }
+                } catch (error) {
+                    console.error('Bookmark error:', error);
+                }
+            });
+        });
+
+        // Collapse animation
+        document.querySelectorAll('.guide-card-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const icon = this.querySelector('.toggle-icon');
+                if (icon) icon.classList.toggle('rotated');
+            });
+        });
+    });
+</script>
+{% endblock %}
