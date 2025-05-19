@@ -76,6 +76,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Keep session after browser closes
+SESSION_COOKIE_AGE = 1209600  # 2 weeks, in seconds
 
 TEMPLATES = [
     {
