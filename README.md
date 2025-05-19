@@ -271,20 +271,39 @@ Some of the features that can be seen on the website are:
   - JavaScript
   - Python
   - Git
-  - Github
-  - VS-Code
-  - Django
+  - GitHub
+  - VS Code
+  - Django (v5.2.1)
   - Heroku
+  - Pillow (v11.2.1)
+  - Whitenoise (v6.9.0)
+  - Gunicorn (v23.0.0)
+  - Python-dotenv (v1.1.0)
 
 ### Libraries
-  - Django v3.2.19
+  - Django v5.2.1
+  - Pillow v11.2.1
+  - Whitenoise v6.9.0
+  - Gunicorn v23.0.0
+  - Sqlparse v0.5.3
+  - Python-dotenv v1.1.0
+  - Pydantic v2.11.4
+  - Pydantic Core v2.33.2
+  - Annotated-types v0.7.0
+  - Asgiref v3.8.1
+  - Typing-inspection v0.4.0
+  - Tqdm v4.67.1
   - Google Fonts
+  - Jiter v0.9.0
 
 ### Tools and Programs
   - Balsamiq wireframe
   - MSCopilot AI
   - VS-Code Copilot
   - ChatGPT
+  - OpenAI
+  - Django Admin
+  - Heroku
 
 [Back to top](#top)
 
