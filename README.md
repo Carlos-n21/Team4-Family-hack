@@ -44,7 +44,7 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
 - [Bugs to fix](#bugs-to-fix)
 - [AI Implementation and Orchestration](#ai-implementaion-and-orchestration)
     - [Code Generation](#code-generation)
-    - [Debugging](#debugging)#429
+    - [Debugging](#debugging)
     - [Code Optimization](#code-optimisation)
     - [Impact on Workflow](#impact-on-workflow)
 - [Testing](#testing)
