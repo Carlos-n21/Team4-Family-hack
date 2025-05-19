@@ -264,6 +264,37 @@ Some of the features that can be seen on the website are:
 
 [Back to top](#top)
 
+## Chatbot Feature
+
+![Chatbot](docs/chatbot.png)
+
+### Overview
+The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
+
+- This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
+
+### How to Use
+- Open the 'Chatbot' section from the navigation menu
+- Type your question in the chat box and press Enter
+- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
+
+### Key Features
+- Natural language Q&A for family tech problems
+- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
+- Integrated in the site for real-time help
+
+### Error Handling
+  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
+
+  ![](docs/errormsg.png)
+
+  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
+
+  ![Network error](docs/networkerrormsg.png)
+
+
+[Back to top](#top)
+
 ## Technologies Used
 ### Languages and Technologies
   - HTML
@@ -354,6 +385,8 @@ To begin this project from scratch, you must first create a new GitHub repositor
 + #### Debug
     + Set debug to False on settings.py
 
+[Back to top](#top)
+
 #### Committing changes
 
 + git add. , commit and push the changes with and appropriate commit message such as "prepare project for deployment"
@@ -373,6 +406,8 @@ This project was deployed using Heroku.
   - SECRET_KEY:<"your secret key">
 + Select 'Deploy' on the navigation menu and in the 'Deployment method' section select Github, enter your repository and select 'Connect'.
 + At the bottom of the page in the Manual deploy section click 'manual deploy' and once it has finished loading select 'open app'.
+
+[Back to top](#top)
 
 #### Extra notes on Deployment
 - If you are wanting to deploy the projet without any static files, you will need to have the KEY:VALUE pair <strong>DISABLE_COLLECTSTATIC: 1</strong> in your Heroku Config Vars which should be removed once your project has static files.
@@ -480,34 +515,6 @@ Website manually tested on the following devices/browsers for responsiveness:
 - Include a way for AI to save searches made by users for technical issues not present on the site
 - Chat between different users to help each other
 - Add a commnunity forum where users can add extra guides sugestions for admins or volunteers to add to the site
-
-## Chatbot Feature
-
-![Chatbot](docs/chatbot.png)
-
-### Overview
-The FamilyTech Chatbot offers instant help for IT issues that users may not find in the site’s guides. It uses OpenAI’s GPT-3.5 Turbo to provide intelligent responses in natural language.
-
-- This youtube tutorial was used to help develop the chatbot - [Build AI Chatbot in HTML CSS & JavaScript | AI Chatbot Tutorial in JavaScript](https://www.youtube.com/watch?v=B21G6tUI4L0&pp=0gcJCdgAo7VqN5tD)
-
-### How to Use
-- Open the 'Chatbot' section from the navigation menu
-- Type your question in the chat box and press Enter
-- Use Shift+Enter to insert a new line in the textarea, but this is only for screen sizes above 800px in width.
-
-### Key Features
-- Natural language Q&A for family tech problems
-- Powered by OpenAI (GPT-3.5 Turbo) and connected to OpenAI through an API Key.
-- Integrated in the site for real-time help
-
-### Error Handling
-  - If the chatbot for whatever reason can't return a response then the chatbot will reply with "Oops! Something went wrong."
-
-  ![](docs/errormsg.png)
-
-  - If their is a network connection issue then the chatbot will reply with "Oops! Something went wrong. Please try again" with a red background.
-
-  ![](docs/networkerrormsg.png)
 
 
 ### Acknowledgements
