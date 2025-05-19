@@ -19,7 +19,6 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Overview](#overview)
 - [Ux - User Experience](#ux---user-experience)
     - [Colour Scheme](#colour-scheme)
-    - [Contrast Check](#contrast-check)
     - [Typography](#typography)
 - [Project Planning](#project-planning)
     - [Strategy](#strategy)
@@ -34,14 +33,14 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Tools and Programs](#tools-and-programs)
 - [Deployment](#deployment)
     - [Connecting to GigHub](#connecting-to-github)
-    - [Django Project Setup](#django-project-setup)
-    - [Cloudinary API](#cloudinary-api)
+      - [Within Codespace](#within-the-codespace)
+      - [Procfile](#procfile)
+      - [Deployment static files](#deployment-with-static-files)
+      - [Commiting changes](#committing-changes)
     - [Heroku Deployment](#heroku-deployment)
     - [Clone Project](#clone-project)
     - [Fork Project](#fork-project)
-    - [Tailwind](#tailwind-css-setup)
-      - [Prerequisits](#prerequisites)
-      - [Installation](#installation)
+    - [Django Project Setup](#django-project-setup)
 - [Bugs to fix](#bugs-to-fix)
 - [AI Implementation and Orchestration](#ai-implementaion-and-orchestration)
     - [Code Generation](#code-generation)
@@ -54,12 +53,10 @@ Live site: [FamilyTech](https://familytech-3d93c509ed81.herokuapp.com/)
     - [Lighthouse Audit](#lighthouse-audit)
     - [Manual Testing](#manual-testing)
 - [Future Features](#future-features)
+- [Chatbot Feature](#chatbot-feature)
 - [Credits](#credits)
-    - [Code References](#code-references)
-    - [Media References](#media-references)
     - [Acknowledgments](#acknowledgements)
     - [Owner Details](#owner-details)
-- [Chatbot](#chatbot-feature)
 
 
 [Back to top](#top)
@@ -211,7 +208,7 @@ Persona 3: Freelance IT Support Technician
 
     Devices Used: Smartphone (on-site visits), Laptop (at home/office)
 
-    Tech Skill Level: Advanced
+    Tech Skill Level: Advancedphones
 
     Goals:
 
