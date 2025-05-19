@@ -462,7 +462,12 @@ Website manually tested on the following devices/browsers for responsiveness:
 [Back to top](#top)
 
 ## Future Features
-- Us
+- Add more interacivity to the page
+- Possibly, add the feature to have a message pop-up on all the pages
+- Include a way for AI to save searches made by users for technical issues not present on the site
+- Chat between different users to help each other
+- Add a commnunity forum where users can add extra guides sugestions for admins or volunteers to add to the site
+- 
 
 ## 
 
